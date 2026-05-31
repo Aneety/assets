@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laboratório Central - Aneety Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#6750a4",
+                    "error-container": "#ffdad6",
+                    "primary": "#4f378a",
+                    "on-primary-fixed": "#22005d",
+                    "outline-variant": "#cbc4d2",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "primary-fixed-dim": "#cfbcff",
+                    "surface": "#fdf7ff",
+                    "on-secondary-container": "#645a7d",
+                    "secondary-fixed": "#e9ddff",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e6e0e9",
+                    "surface-container": "#f2ecf4",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#c9a74d",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdf93",
+                    "on-error": "#ffffff",
+                    "tertiary": "#765b00",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#ded8e0",
+                    "secondary": "#63597c",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#494551",
+                    "outline": "#7a7582",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "primary-container": "#6750a4",
+                    "on-secondary-fixed": "#1f1635",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1d1b20",
+                    "inverse-surface": "#322f35",
+                    "background": "#fdf7ff",
+                    "on-tertiary-container": "#503d00",
+                    "surface-container-high": "#ece6ee",
+                    "surface-bright": "#fdf7ff",
+                    "on-surface": "#1d1b20",
+                    "on-primary-container": "#e0d2ff",
+                    "inverse-on-surface": "#f5eff7",
+                    "secondary-container": "#e1d4fd",
+                    "on-tertiary-fixed": "#241a00",
+                    "primary-fixed": "#e9ddff",
+                    "surface-container-low": "#f8f2fa",
+                    "inverse-primary": "#cfbcff",
+                    "surface-container-highest": "#e6e0e9",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "secondary-fixed-dim": "#cdc0e9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "density-dense": "8px",
+                    "density-comfortable": "16px",
+                    "unit": "4px",
+                    "container-margin-mobile": "16px",
+                    "gutter": "16px",
+                    "container-margin-desktop": "32px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface border-b border-outline-variant flex justify-between items-center px-container-margin-mobile h-14">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="biotech">biotech</span>
+<h1 class="font-headline-md text-headline-sm text-primary">Laboratório Central</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 hover:bg-surface-container-high transition-colors rounded-full cursor-pointer active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border border-surface"></span>
+</button>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto p-container-margin-mobile md:p-container-margin-desktop space-y-8">
+<!-- Summary Section (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Waiting Quote -->
+<div class="bg-surface-container-low p-density-comfortable border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary p-2 bg-tertiary-fixed rounded-lg" data-icon="request_quote">request_quote</span>
+<span class="font-data-mono text-data-mono bg-tertiary-container/20 text-on-tertiary-container px-2 py-1 rounded">PENDENTE</span>
+</div>
+<div class="space-y-1">
+<p class="font-label-caps text-label-caps text-on-surface-variant">AGUARDANDO ORÇAMENTO</p>
+<p class="font-display-lg text-display-lg text-on-surface">02</p>
+</div>
+</div>
+<!-- In Production -->
+<div class="bg-surface-container-low p-density-comfortable border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary p-2 bg-primary-fixed rounded-lg" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span class="font-data-mono text-data-mono bg-primary-container/20 text-on-primary-container px-2 py-1 rounded">ATIVO</span>
+</div>
+<div class="space-y-1">
+<p class="font-label-caps text-label-caps text-on-surface-variant">EM PRODUÇÃO</p>
+<p class="font-display-lg text-display-lg text-on-surface">05</p>
+</div>
+</div>
+<!-- Ready for Shipping -->
+<div class="bg-surface-container-low p-density-comfortable border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary p-2 bg-secondary-fixed rounded-lg" data-icon="local_shipping">local_shipping</span>
+<span class="font-data-mono text-data-mono bg-secondary-container/20 text-on-secondary-container px-2 py-1 rounded">FINALIZADO</span>
+</div>
+<div class="space-y-1">
+<p class="font-label-caps text-label-caps text-on-surface-variant">PRONTO PARA ENVIO</p>
+<p class="font-display-lg text-display-lg text-on-surface">03</p>
+</div>
+</div>
+</section>
+<!-- Main Content Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: New Requests -->
+<section class="lg:col-span-5 space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="fiber_new">fiber_new</span>
+                        Novas Solicitações
+                    </h2>
+<button class="text-primary font-label-caps text-label-caps hover:underline">VER TODAS</button>
+</div>
+<!-- Request Card -->
+<div class="bg-surface border border-outline-variant rounded-xl p-density-comfortable overflow-hidden relative group transition-all hover:shadow-md">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="space-y-1">
+<h3 class="font-headline-sm text-body-lg text-on-surface">Coroa Zircônia</h3>
+<p class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="hospital">local_hospital</span>
+                                Clínica Sorriso Real
+                            </p>
+</div>
+<span class="text-on-surface-variant font-data-mono text-[11px]">Há 2h</span>
+</div>
+<div class="flex gap-2 mb-6">
+<span class="bg-surface-variant px-2 py-1 rounded-lg text-on-surface-variant text-[12px] font-medium uppercase tracking-wider">Estética</span>
+<span class="bg-surface-variant px-2 py-1 rounded-lg text-on-surface-variant text-[12px] font-medium uppercase tracking-wider">Prótese Fixa</span>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 rounded-xl font-label-caps text-label-caps hover:bg-primary-container transition-colors active:scale-95">
+                        VER DETALHES
+                    </button>
+</div>
+</section>
+<!-- Right Column: Production Progress -->
+<section class="lg:col-span-7 space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="pending_actions">pending_actions</span>
+                        Ordens em Produção
+                    </h2>
+<button class="text-primary font-label-caps text-label-caps hover:underline">FILTRAR</button>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl divide-y divide-outline-variant">
+<!-- Order Item 1 -->
+<div class="p-density-comfortable flex items-center justify-between hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="tooth">dentistry</span>
+</div>
+<div>
+<p class="font-headline-sm text-body-md text-on-surface">Pedido #2948</p>
+<p class="text-on-surface-variant text-body-sm">Ponte Fixa - 3 Elementos</p>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[18px] pulse-animation" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Em Acabamento</span>
+</div>
+<p class="text-on-surface-variant text-[11px] font-data-mono mt-1">Entrega: 14/10</p>
+</div>
+</div>
+<!-- Order Item 2 -->
+<div class="p-density-comfortable flex items-center justify-between hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="dentistry">dentistry</span>
+</div>
+<div>
+<p class="font-headline-sm text-body-md text-on-surface">Pedido #2942</p>
+<p class="text-on-surface-variant text-body-sm">Lentes de Contato (8 un)</p>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="brush">brush</span>
+<span class="font-label-caps text-label-caps">Glaze &amp; Pintura</span>
+</div>
+<p class="text-on-surface-variant text-[11px] font-data-mono mt-1">Entrega: 12/10</p>
+</div>
+</div>
+<!-- Order Item 3 -->
+<div class="p-density-comfortable flex items-center justify-between hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="biotech">biotech</span>
+</div>
+<div>
+<p class="font-headline-sm text-body-md text-on-surface">Pedido #2935</p>
+<p class="text-on-surface-variant text-body-sm">Provisório Imediato</p>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="3d_rotation">3d_rotation</span>
+<span class="font-label-caps text-label-caps">Fresagem CNC</span>
+</div>
+<p class="text-on-surface-variant text-[11px] font-data-mono mt-1">Entrega: Hoje</p>
+</div>
+</div>
+</div>
+<!-- Secondary Card: Lab Image Decor -->
+<div class="mt-6 rounded-xl overflow-hidden h-40 relative group border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A macro photograph of a high-end dental laboratory workstation featuring precision tools and a 3D dental scanner. The scene is brightly lit with a clean, sterile professional atmosphere using a soft white and deep purple color palette. Subtle glints of light reflect off polished zirconia crowns on a tray, emphasizing craftsmanship and technological advancement. The overall mood is precise, modern, and reliable, characteristic of a premium B2B medical facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzwp8EkKNUimxNWFcoG2eCBn8kMl1Vvsc1zEKQSSbKdb6atsdMyyJ8ftkIAlYfss9xZdDjMjMfx3y6xY78SUrstqWkSDEfGZeNm6t8ByfzxIu3NwypyYQJlEBKvxQd4ePixBMT143UZlKx88YJQIrf6zkIECtU-mD-ZKmjMNtxXy3tQqcSWxsN_-YSRbCmcxUYSBl49ohrya7mtoO1HaVZTinjfvghuyKieZx4JJ9W92msIVeAp8pSHVMCEhjFtwJ7zChvuuJiTpDx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end p-6">
+<p class="text-white font-headline-sm text-body-lg">Tecnologia de Ponta Aneety Sync</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 h-20 bg-surface-container shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] flex justify-around items-center pb-safe">
+<!-- Tab: Pedidos (Active) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-caps text-label-caps">Pedidos</span>
+</button>
+<!-- Tab: Orçamentos -->
+<button class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-variant transition-colors active:scale-90 px-4 py-1 rounded-full">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-label-caps text-label-caps">Orçamentos</span>
+</button>
+<!-- Tab: Produção -->
+<button class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-variant transition-colors active:scale-90 px-4 py-1 rounded-full">
+<span class="material-symbols-outlined" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span class="font-label-caps text-label-caps">Produção</span>
+</button>
+<!-- Tab: Perfil -->
+<button class="flex flex-col items-center justify-center text-on-secondary-fixed-variant hover:bg-surface-variant transition-colors active:scale-90 px-4 py-1 rounded-full">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Perfil</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for notification bell
+        const bell = document.querySelector('[data-icon="notifications"]').parentElement;
+        bell.addEventListener('click', () => {
+            bell.classList.add('animate-bounce');
+            setTimeout(() => bell.classList.remove('animate-bounce'), 1000);
+        });
+
+        // Navigation state handler simulation
+        const navButtons = document.querySelectorAll('nav button');
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                navButtons.forEach(b => {
+                    b.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+                    b.classList.add('text-on-secondary-fixed-variant');
+                });
+                btn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+                btn.classList.remove('text-on-secondary-fixed-variant');
+            });
+        });
+    </script>
+</body></html>

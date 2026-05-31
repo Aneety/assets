@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#c9a74d",
+                        "surface": "#fdf7ff",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "surface-dim": "#ded8e0",
+                        "on-secondary-container": "#645a7d",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "primary-fixed-dim": "#cfbcff",
+                        "primary-fixed": "#e9ddff",
+                        "inverse-surface": "#322f35",
+                        "surface-variant": "#e6e0e9",
+                        "background": "#fdf7ff",
+                        "tertiary-fixed": "#ffdf93",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "primary-container": "#6750a4",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#e1d4fd",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#ece6ee",
+                        "on-primary-fixed": "#22005d",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-container-highest": "#e6e0e9",
+                        "on-surface-variant": "#494551",
+                        "surface-container-low": "#f8f2fa",
+                        "secondary": "#63597c",
+                        "outline-variant": "#cbc4d2",
+                        "primary": "#4f378a",
+                        "outline": "#7a7582",
+                        "on-background": "#1d1b20",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#765b00",
+                        "on-surface": "#1d1b20",
+                        "inverse-on-surface": "#f5eff7",
+                        "on-secondary-fixed": "#1f1635",
+                        "inverse-primary": "#cfbcff",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-container": "#503d00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#e0d2ff",
+                        "surface-bright": "#fdf7ff",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#6750a4",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "on-error": "#ffffff",
+                        "surface-container": "#f2ecf4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-margin-mobile": "16px",
+                        "gutter": "16px",
+                        "density-dense": "8px",
+                        "density-comfortable": "16px",
+                        "container-margin-desktop": "32px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            user-select: none;
+        }
+        body {
+            background-color: #fdf7ff;
+            color: #1d1b20;
+            padding-top: 56px;
+            padding-bottom: 64px;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbc4d2; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md custom-scrollbar">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center px-container-margin-mobile h-14 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-sm transition-colors duration-200">
+<div class="flex items-center gap-4 w-full">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim transition-colors duration-200 cursor-pointer active:opacity-70 hover:bg-surface-container-high p-2 rounded-full" data-icon="arrow_back">arrow_back</span>
+<h1 class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed-dim">Aviso de Atraso</h1>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-container-margin-mobile py-6 space-y-6">
+<!-- Order Context Card -->
+<section class="bg-surface-container-low border border-outline-variant rounded-xl p-4 shadow-sm overflow-hidden relative">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-primary bg-primary-fixed px-2 py-0.5 rounded">Pedido #2948</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Prioridade: Alta</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-1">Coroa Zircônia Translúcida</h2>
+<div class="flex items-center gap-2 text-on-surface-variant mt-2">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+<p class="font-body-md text-body-md">Estágio: <span class="text-primary font-medium">Acabamento Manual</span></p>
+</div>
+</div>
+</section>
+<!-- Selection - Delay Reason -->
+<section class="space-y-4">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="report_problem">report_problem</span>
+                MOTIVO DO ATRASO
+            </h3>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-center justify-between p-4 border border-outline-variant rounded-lg bg-surface-container transition-all hover:bg-surface-container-high cursor-pointer group active:scale-[0.98]">
+<span class="font-body-lg text-body-lg text-on-surface">Ajuste de Cor/Escala</span>
+<input checked="" class="w-5 h-5 text-primary focus:ring-primary border-outline-variant" name="reason" type="radio"/>
+</label>
+<label class="flex items-center justify-between p-4 border border-outline-variant rounded-lg bg-surface-container transition-all hover:bg-surface-container-high cursor-pointer group active:scale-[0.98]">
+<span class="font-body-lg text-body-lg text-on-surface">Refilmagem/Reexecução Técnica</span>
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant" name="reason" type="radio"/>
+</label>
+<label class="flex items-center justify-between p-4 border border-outline-variant rounded-lg bg-surface-container transition-all hover:bg-surface-container-high cursor-pointer group active:scale-[0.98]">
+<span class="font-body-lg text-body-lg text-on-surface">Manutenção de Equipamento</span>
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant" name="reason" type="radio"/>
+</label>
+<label class="flex items-center justify-between p-4 border border-outline-variant rounded-lg bg-surface-container transition-all hover:bg-surface-container-high cursor-pointer group active:scale-[0.98]">
+<span class="font-body-lg text-body-lg text-on-surface">Atraso Logístico de Matéria-prima</span>
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant" name="reason" type="radio"/>
+</label>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-4 border border-outline-variant rounded-lg bg-surface-container transition-all hover:bg-surface-container-high cursor-pointer group active:scale-[0.98]">
+<span class="font-body-lg text-body-lg text-on-surface">Outro</span>
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant" id="radio-other" name="reason" type="radio"/>
+</label>
+<input class="hidden w-full p-4 border border-outline-variant rounded-lg bg-surface-container-lowest focus:ring-primary focus:border-primary" id="input-other" placeholder="Especifique o motivo..." type="text"/>
+</div>
+</div>
+</section>
+<!-- New Estimate -->
+<section class="space-y-4">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="event_upcoming">event_upcoming</span>
+                NOVA ESTIMATIVA DE ENTREGA
+            </h3>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="flex-1">
+<label class="block text-body-sm font-medium text-on-surface-variant mb-1">Data</label>
+<div class="relative">
+<input class="w-full p-4 border border-outline-variant rounded-lg bg-surface-container-lowest focus:ring-primary focus:border-primary text-body-lg" type="date"/>
+</div>
+</div>
+<div class="flex-1">
+<label class="block text-body-sm font-medium text-on-surface-variant mb-1">Horário</label>
+<input class="w-full p-4 border border-outline-variant rounded-lg bg-surface-container-lowest focus:ring-primary focus:border-primary text-body-lg" type="time"/>
+</div>
+</div>
+</section>
+<!-- Message to Buyer -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="chat_bubble">chat_bubble</span>
+                    MENSAGEM PARA O COMPRADOR
+                </h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Destinatário: Clínica Sorriso Real</span>
+</div>
+<textarea class="w-full p-4 border border-outline-variant rounded-lg bg-surface-container-lowest focus:ring-primary focus:border-primary text-body-lg resize-none" placeholder="Olá, tivemos um pequeno contratempo técnico na etapa final..." rows="4"></textarea>
+</section>
+<!-- Action Button -->
+<div class="pt-4">
+<button class="w-full bg-primary text-on-primary font-headline-sm text-headline-sm py-4 rounded-xl shadow-lg hover:bg-primary-container hover:text-on-primary-container transition-all flex items-center justify-center gap-3 active:scale-95">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+                Enviar Notificação
+            </button>
+<p class="text-center text-body-sm text-on-surface-variant mt-4 px-8">
+                Ao enviar, o comprador receberá um alerta imediato via app e e-mail.
+            </p>
+</div>
+</main>
+<!-- Lab Process Visual Hint (Bento Grid Style for Dashboard Feel) -->
+<section class="px-container-margin-mobile mb-10 max-w-2xl mx-auto">
+<div class="bg-surface-container-high rounded-2xl p-6 border border-outline-variant flex flex-col md:flex-row gap-6 items-center">
+<img alt="Laboratório" class="w-32 h-32 rounded-full object-cover border-4 border-surface shadow-md" data-alt="A macro photograph of professional dental laboratory equipment under a bright workspace light. A technician's gloved hands are carefully holding a ceramic tooth crown near a polishing tool. The environment is clinical and organized, with a neutral white and purple color scheme reflecting a modern, high-tech B2B medical facility. The lighting is focused and warm, highlighting the precision of the work." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxk0XBEcqRQGv0mG67NEkEMOIfWFRLfxn7yDDH8Z0-SiJiRxnIqugavdXgy-oVLiAxtwhQz0sDPwKP-7CboPXJlexyjMNTMTZr1H0JybNl1gQQDPj-a2XG8rOeZz1L1ymT8bxn9OyVy2l4yswWhlRo8-GnSaxWpDU58wclX98xbxOiSwB_kbMOlSSFHmg448hqgIMqR0_jPNJDMjbMcNQRGIPnpF2FpHkRaNhBIDo9uoCGX_G4qm4T7wKIKp3hEIZcNvLRRtviuGol"/>
+<div class="text-center md:text-left">
+<p class="font-headline-sm text-headline-sm text-primary mb-2">Garantia de Qualidade</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Atrasos pontuais para ajustes técnicos garantem que a Clínica Sorriso Real receba uma peça com adaptação perfeita.</p>
+</div>
+</div>
+</section>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface dark:bg-surface-dim px-2 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary-container text-on-secondary-container dark:text-on-secondary-container rounded-full px-4 py-1 transition-all duration-200 ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 transition-all duration-200 ease-in-out active:scale-95 hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-label-caps text-label-caps">Quotes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 transition-all duration-200 ease-in-out active:scale-95 hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span class="font-label-caps text-label-caps">Production</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 transition-all duration-200 ease-in-out active:scale-95 hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<script>
+        // Toggle "Other" input field
+        const otherRadio = document.getElementById('radio-other');
+        const otherInput = document.getElementById('input-other');
+        const allRadios = document.querySelectorAll('input[name="reason"]');
+
+        allRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (otherRadio.checked) {
+                    otherInput.classList.remove('hidden');
+                    otherInput.focus();
+                } else {
+                    otherInput.classList.add('hidden');
+                }
+            });
+        });
+
+        // Micro-interaction for primary button
+        const mainBtn = document.querySelector('button');
+        mainBtn.addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            this.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="sync">sync</span> Enviando...';
+            this.classList.add('opacity-80');
+            
+            setTimeout(() => {
+                this.innerHTML = '<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span> Enviado com Sucesso';
+                this.classList.replace('bg-primary', 'bg-tertiary');
+                this.classList.replace('text-on-primary', 'text-on-tertiary');
+            }, 1200);
+        });
+    </script>
+</body></html>

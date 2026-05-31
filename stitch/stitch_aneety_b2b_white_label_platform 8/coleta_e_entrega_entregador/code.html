@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Aneety Platform - Delivery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fdf7ff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f5eff7",
+                    "secondary": "#63597c",
+                    "primary-fixed-dim": "#cfbcff",
+                    "surface-container-highest": "#e6e0e9",
+                    "on-secondary-container": "#645a7d",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#765b00",
+                    "tertiary-fixed": "#ffdf93",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#494551",
+                    "on-surface": "#1d1b20",
+                    "surface": "#fdf7ff",
+                    "surface-container-high": "#ece6ee",
+                    "on-tertiary-container": "#503d00",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "surface-container-low": "#f8f2fa",
+                    "secondary-container": "#e1d4fd",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "on-background": "#1d1b20",
+                    "inverse-primary": "#cfbcff",
+                    "primary-container": "#6750a4",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "secondary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-variant": "#e6e0e9",
+                    "inverse-surface": "#322f35",
+                    "surface-tint": "#6750a4",
+                    "outline-variant": "#cbc4d2",
+                    "tertiary-container": "#c9a74d",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#e9ddff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "primary": "#4f378a",
+                    "on-secondary-fixed": "#1f1635",
+                    "on-primary-fixed": "#22005d",
+                    "on-primary-container": "#e0d2ff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "surface-dim": "#ded8e0",
+                    "surface-container": "#f2ecf4",
+                    "outline": "#7a7582",
+                    "background": "#fdf7ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "density-dense": "8px",
+                    "density-comfortable": "16px",
+                    "container-margin-mobile": "16px",
+                    "gutter": "16px",
+                    "container-margin-desktop": "32px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .h-screen-dynamic { height: 100dvh; }
+        
+        /* Map UI effects */
+        .map-overlay-gradient {
+            background: linear-gradient(to bottom, rgba(253, 247, 255, 0.9) 0%, rgba(253, 247, 255, 0) 20%);
+        }
+
+        /* Pulse animation for active step */
+        @keyframes pulse-soft {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+        .pulse-info { animation: pulse-soft 2s infinite ease-in-out; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden h-screen-dynamic">
+<!-- Top Status Bar (Offline/Online Indicator) -->
+<div class="fixed top-0 left-0 w-full z-[60] bg-tertiary-container text-on-tertiary-container px-4 py-1 flex items-center justify-center transition-all duration-300 hidden" id="offline-bar">
+<span class="material-symbols-outlined text-[16px] mr-2">wifi_off</span>
+<span class="font-label-caps text-label-caps">OFFLINE MODE — SYNC PENDING</span>
+</div>
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 w-full sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a friendly delivery operator wearing a clean corporate uniform. The lighting is soft and natural, emphasizing a light-mode aesthetic. The background is a blurred modern office environment with a palette of soft purples and whites, consistent with the Aneety brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYpVsfL-L3myvA04ha7gkZxX2W1ioZrfm493Q-x4avhS1HH1dO9UAqbC1vtLyKy7tS8KBspwdKdcc81A24jzdif3aBMINIP_pVnQmWGjvGyqvTmC-S5-IFYw75vprcc3Yg5Y8BuY6iNKiu5who3L4mQMBwkXHw1bXtdDUqsskAIMgsN0Jl2_vpAlOmJyX6XsxMJzykZfjRtUMV76jCJyaL-2z3blaNMM2-TigmwhmPP0sMQ0SP8YOY5w-cO6Xt_P7xCd9f1xRGAT0n"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Aneety</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#4CAF50]"></span>
+<span class="text-[10px] font-label-caps text-on-surface-variant uppercase tracking-wider">Online</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+<span class="text-label-caps font-bold">IN TRANSIT</span>
+</div>
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="relative h-[calc(100dvh-64px-64px)] w-full overflow-hidden">
+<!-- Interactive Map Section -->
+<div class="absolute inset-0 z-0">
+<img alt="Route Map" class="w-full h-full object-cover" data-alt="A high-fidelity minimalist GPS navigation map showing a suburban route with a clear purple path line indicating the delivery trajectory. The map uses a clean light-mode theme with soft grays and whites. A prominent purple pin marks the destination point at a professional medical building. The aesthetic is modern and data-focused, reflecting a high-end B2B logistics interface." data-location="São Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs-8LMqUbMQQ-g9Fi12HxaJjAzkDiFg4lTgYcYIV-MNGiMfhlkUB_72iJQUu6CwqvUUeRqjS93xBGsO_sOLJE69WNIjKJr9MGICZhvqszSeBv55BJJgb2xSjO8sL5xZiLNbGmoKylfmJwaCZksLPPChlngioS3C4qPjKhA23xewWp8DVWlbjS7cLQdQetsUwL-0xnXz3QlL86quplVgMZyFQOmy6e3MjHcmJMYyY7yMlM5NInhmFT5aPxFfufIhELrL251sMUVTsH1"/>
+<div class="absolute inset-0 map-overlay-gradient pointer-events-none"></div>
+<!-- Floating Map Controls -->
+<div class="absolute right-4 top-4 flex flex-col gap-2">
+<button class="w-12 h-12 bg-surface shadow-lg rounded-xl flex items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+<button class="w-12 h-12 bg-surface shadow-lg rounded-xl flex items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined">layers</span>
+</button>
+</div>
+</div>
+<!-- Delivery Bottom Sheet (Card) -->
+<div class="absolute bottom-0 left-0 w-full z-20 bg-surface rounded-t-[32px] shadow-[0_-8px_30px_rgb(0,0,0,0.12)] p-6 transition-all duration-500 ease-out translate-y-0" id="delivery-sheet">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-outline-variant rounded-full mx-auto mb-6"></div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="font-data-mono text-data-mono text-primary bg-primary-container/20 px-2 py-0.5 rounded">#ORD-2024-9982</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-1">Odontoclinica Central</h2>
+</div>
+<div class="text-right">
+<span class="block font-label-caps text-on-surface-variant">EST. ARRIVAL</span>
+<span class="font-headline-sm text-headline-sm text-primary">14:20</span>
+</div>
+</div>
+<div class="flex items-start gap-3 mb-6 p-4 bg-surface-container-low border border-outline-variant rounded-xl">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div class="flex flex-col">
+<span class="font-body-md text-on-surface">Av. Paulista, 1578 - Bela Vista</span>
+<span class="font-body-sm text-on-surface-variant">São Paulo, SP - CEP 01310-200</span>
+</div>
+</div>
+<!-- Delivery Progress / Checklist (Miniature) -->
+<div class="flex items-center gap-2 mb-8 overflow-x-auto no-scrollbar">
+<div class="flex-none flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-caps text-on-surface whitespace-nowrap">Picked Up</span>
+<div class="w-8 h-[2px] bg-primary"></div>
+</div>
+<div class="flex-none flex items-center gap-2">
+<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center text-primary pulse-info">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<span class="font-label-caps text-on-surface font-bold whitespace-nowrap">Arrived</span>
+<div class="w-8 h-[2px] bg-outline-variant"></div>
+</div>
+<div class="flex-none flex items-center gap-2">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center text-outline">
+</div>
+<span class="font-label-caps text-on-surface-variant whitespace-nowrap">Delivered</span>
+</div>
+</div>
+<!-- Action Area -->
+<div class="space-y-4" id="action-container">
+<button class="w-full bg-primary text-on-primary h-14 rounded-xl font-headline-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-all" id="main-action-btn" onclick="handleAction()">
+<span class="material-symbols-outlined" id="btn-icon">login</span>
+<span id="btn-text">Check-in</span>
+</button>
+<div class="hidden animate-in fade-in slide-in-from-bottom-2 duration-300" id="evidence-container">
+<div class="flex gap-4">
+<button class="flex-1 flex flex-col items-center justify-center border-2 border-dashed border-outline-variant rounded-xl p-4 text-on-surface-variant hover:bg-surface-container transition-colors" onclick="takePhoto()">
+<span class="material-symbols-outlined text-[32px] mb-2">add_a_photo</span>
+<span class="font-label-caps text-label-caps">Take Photo</span>
+</button>
+<div class="hidden flex-1 relative rounded-xl overflow-hidden border border-outline-variant" id="photo-preview">
+<img alt="Evidence Preview" class="w-full h-full object-cover" data-alt="A clear, bright photograph showing a medical package delivered at a clean reception desk. The lighting is professional and high-key. The scene includes part of a dental clinic's sign in the background, subtly confirming the location. The overall tone is professional, verifying a successful transaction within the Aneety ecosystem." id="preview-img" src=""/>
+<button class="absolute top-1 right-1 bg-error text-on-error rounded-full p-1" onclick="removePhoto()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-surface-container-high text-on-surface-variant h-12 rounded-xl font-label-caps flex items-center justify-center gap-2 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">call</span>
+                        CALL CLIENT
+                    </button>
+<button class="flex-1 bg-surface-container-high text-on-surface-variant h-12 rounded-xl font-label-caps flex items-center justify-center gap-2 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+                        MESSAGE
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface dark:bg-surface-dim shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-2 hover:bg-surface-container-high active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">request_quote</span>
+<span class="font-label-caps text-label-caps">Quotes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-2 hover:bg-surface-container-high active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">task_alt</span>
+<span class="font-label-caps text-label-caps">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-2 hover:bg-surface-container-high active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<script>
+        let currentState = 'ready'; // ready -> checked-in -> completed
+        
+        function handleAction() {
+            const btnText = document.getElementById('btn-text');
+            const btnIcon = document.getElementById('btn-icon');
+            const mainBtn = document.getElementById('main-action-btn');
+            const evidenceContainer = document.getElementById('evidence-container');
+
+            if (currentState === 'ready') {
+                // Check-in logic
+                currentState = 'checked-in';
+                btnText.innerText = 'Confirm Delivery';
+                btnIcon.innerText = 'task_alt';
+                mainBtn.classList.remove('bg-primary');
+                mainBtn.classList.add('bg-[#4CAF50]', 'text-white');
+                evidenceContainer.classList.remove('hidden');
+                
+                // Trigger feedback
+                navigator.vibrate?.(50);
+            } else if (currentState === 'checked-in') {
+                // Final Delivery Logic
+                mainBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span> Processing...`;
+                setTimeout(() => {
+                    alert('Delivery confirmed successfully!');
+                    window.location.reload();
+                }, 1500);
+            }
+        }
+
+        function takePhoto() {
+            const preview = document.getElementById('photo-preview');
+            const previewImg = document.getElementById('preview-img');
+            // Mock taking photo
+            previewImg.src = "https://images.unsplash.com/photo-1585731050160-49658f8e185e?q=80&w=800&auto=format&fit=crop";
+            preview.classList.remove('hidden');
+        }
+
+        function removePhoto() {
+            document.getElementById('photo-preview').classList.add('hidden');
+        }
+
+        // Simulate random offline/online status for demo
+        setInterval(() => {
+            if(Math.random() > 0.9) {
+                document.getElementById('offline-bar').classList.remove('hidden');
+            } else if(Math.random() > 0.95) {
+                document.getElementById('offline-bar').classList.add('hidden');
+            }
+        }, 5000);
+
+        // Simple bottom sheet drag simulation (visual only for this demo)
+        let startY;
+        const sheet = document.getElementById('delivery-sheet');
+        sheet.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+        });
+        sheet.addEventListener('touchmove', (e) => {
+            const currentY = e.touches[0].clientY;
+            const diff = currentY - startY;
+            if (diff > 0 && diff < 200) {
+                sheet.style.transform = `translateY(${diff}px)`;
+            }
+        });
+        sheet.addEventListener('touchend', () => {
+            sheet.style.transform = `translateY(0)`;
+        });
+    </script>
+</body></html>

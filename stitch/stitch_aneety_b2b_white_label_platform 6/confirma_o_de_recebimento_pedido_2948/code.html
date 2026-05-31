@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#594400",
+                        "primary": "#4f378a",
+                        "on-secondary-container": "#645a7d",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "outline": "#7a7582",
+                        "outline-variant": "#cbc4d2",
+                        "inverse-surface": "#322f35",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e6e0e9",
+                        "surface-tint": "#6750a4",
+                        "inverse-primary": "#cfbcff",
+                        "surface-bright": "#fdf7ff",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#ded8e0",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fdf7ff",
+                        "secondary-container": "#e1d4fd",
+                        "on-primary-fixed": "#22005d",
+                        "primary-container": "#6750a4",
+                        "surface-container-low": "#f8f2fa",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f2ecf4",
+                        "on-secondary-fixed": "#1f1635",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ece6ee",
+                        "on-surface-variant": "#494551",
+                        "on-surface": "#1d1b20",
+                        "background": "#fdf7ff",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdf93",
+                        "on-background": "#1d1b20",
+                        "primary-fixed-dim": "#cfbcff",
+                        "surface-variant": "#e6e0e9",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-tertiary-container": "#503d00",
+                        "tertiary-container": "#c9a74d",
+                        "on-primary": "#ffffff",
+                        "secondary": "#63597c",
+                        "tertiary": "#765b00",
+                        "primary-fixed": "#e9ddff",
+                        "on-primary-container": "#e0d2ff",
+                        "inverse-on-surface": "#f5eff7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "density-dense": "8px",
+                        "gutter": "16px",
+                        "density-comfortable": "16px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-pill {
+            transition: all 0.2s ease-in-out;
+        }
+        .bento-card {
+            transition: transform 0.2s ease;
+        }
+        .bento-card:active {
+            transform: scale(0.98);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 w-full sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="p-2 -ml-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Confirmar Recebimento</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="notifications">notifications</span>
+</div>
+</header>
+<main class="flex-1 max-w-[1440px] mx-auto w-full px-container-margin-mobile md:px-container-margin-desktop py-8">
+<div class="max-w-2xl mx-auto space-y-8">
+<!-- Bento Order Card -->
+<section class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center">
+<div class="w-24 h-24 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0">
+<img class="w-20 h-20 object-contain" data-alt="A highly detailed close-up of a high-quality translucent zirconia crown for dental restoration. The crown is displayed on a sleek, minimalist pedestal under soft, professional studio lighting. The background is a clean, neutral white with subtle purple-tinted shadows that reflect the primary brand color. The overall atmosphere is clinical, precise, and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN5sp2ffTcui1OEtDkQkcoXLvYMnu4xNzKCcmwyWwYyn45w76FbnQabD-U6TtllQZyWAy-s34fdsel_IH1zksmLu65uZWXgj7Df-6IMdymnFkgDDm7PVDWCrDWEEnVMV-1cZgXPsRGXRwGN1jltoE0VgKE8tvjpZlH_cvqxLdgogx4pNl0WZKQZlejTqIwG0926aECBGVb85a7cFCH3gUo_imZJaE1sd8u2kHT0OVrVMFdMUAqtrJFVIVaLphMxhZ3oXhDjrjBbNUu"/>
+</div>
+<div class="flex-1 space-y-2 text-center md:text-left">
+<div class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps mb-2">
+                            Pedido #2948
+                        </div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Coroa Zircônia Translúcida</h2>
+<div class="flex items-center justify-center md:justify-start gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-body-md" data-icon="home_health">home_health</span>
+<span class="font-body-md text-body-md">Laboratório Central</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low px-6 py-4 border-t border-outline-variant flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Status da Entrega</span>
+<span class="font-body-sm text-body-sm text-primary font-bold">Aguardando Confirmação</span>
+</div>
+</section>
+<!-- Action Section -->
+<section class="space-y-6">
+<div class="bg-primary-container/10 border border-primary/20 rounded-xl p-6">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary shrink-0" data-icon="info">info</span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            Ao clicar em confirmar, o pagamento será liberado para o fornecedor. Verifique a integridade do produto antes de prosseguir.
+                        </p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-headline-sm text-headline-sm py-5 rounded-xl shadow-lg hover:brightness-110 active:scale-[0.99] transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Confirmar Entrega
+                </button>
+</section>
+<!-- Dispute Section -->
+<section class="pt-8 border-t border-outline-variant">
+<div class="flex flex-col items-center text-center space-y-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Problemas com o pedido?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                        Caso o produto tenha chegado com defeitos ou não seja o que você solicitou, você pode contestar o recebimento.
+                    </p>
+<button class="flex items-center gap-2 text-error font-body-lg text-body-lg hover:underline active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="report">report</span>
+                        Abrir Disputa
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface dark:bg-surface-dim shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-2 hover:bg-surface-container-high active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-label-caps text-label-caps">Quotes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-2 hover:bg-surface-container-high active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+<span class="font-label-caps text-label-caps">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-2 hover:bg-surface-container-high active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<!-- Desktop NavigationDrawer Emulation (Simplified) -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full w-[240px] bg-surface-container-low dark:bg-surface-container-lowest border-r border-outline-variant py-4 z-40">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold">A</div>
+<span class="font-headline-sm text-headline-sm font-black text-primary">Aneety</span>
+</div>
+<div class="flex-1 space-y-1">
+<a class="flex items-center gap-4 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary font-bold rounded-full mx-2 px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="assignment" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline px-4 py-3 mx-2 hover:bg-surface-container-highest dark:hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-body-md text-body-md">Quotes</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline px-4 py-3 mx-2 hover:bg-surface-container-highest dark:hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+<span class="font-body-md text-body-md">Tasks</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline px-4 py-3 mx-2 hover:bg-surface-container-highest dark:hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-body-md text-body-md">Profile</span>
+</a>
+</div>
+</aside>
+<script>
+        // Simple micro-interaction for the confirm button
+        const confirmBtn = document.querySelector('button.bg-primary');
+        if (confirmBtn) {
+            confirmBtn.addEventListener('click', function() {
+                this.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="sync">sync</span> Processando...';
+                setTimeout(() => {
+                    this.innerHTML = '<span class="material-symbols-outlined" data-icon="done_all">done_all</span> Sucesso!';
+                    this.classList.remove('bg-primary');
+                    this.classList.add('bg-green-600');
+                }, 1500);
+            });
+        }
+    </script>
+</body></html>

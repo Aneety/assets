@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Abertura de Disputa | Aneety Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-fill { font-variation-settings: 'FILL' 1; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbc4d2; border-radius: 10px; }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#cfbcff",
+                    "primary-fixed": "#e9ddff",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "tertiary-container": "#c9a74d",
+                    "surface": "#fdf7ff",
+                    "surface-dim": "#ded8e0",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "on-secondary-container": "#645a7d",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#e1d4fd",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container-high": "#ece6ee",
+                    "on-primary-fixed": "#22005d",
+                    "surface-container-highest": "#e6e0e9",
+                    "on-surface-variant": "#494551",
+                    "surface-variant": "#e6e0e9",
+                    "inverse-surface": "#322f35",
+                    "background": "#fdf7ff",
+                    "tertiary-fixed": "#ffdf93",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "primary-container": "#6750a4",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#765b00",
+                    "on-surface": "#1d1b20",
+                    "on-secondary-fixed": "#1f1635",
+                    "inverse-primary": "#cfbcff",
+                    "inverse-on-surface": "#f5eff7",
+                    "secondary": "#63597c",
+                    "outline-variant": "#cbc4d2",
+                    "surface-container-low": "#f8f2fa",
+                    "primary": "#4f378a",
+                    "outline": "#7a7582",
+                    "on-background": "#1d1b20",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#6750a4",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "surface-container": "#f2ecf4",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "secondary-fixed": "#e9ddff",
+                    "on-tertiary-container": "#503d00",
+                    "surface-bright": "#fdf7ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#e0d2ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-margin-mobile": "16px",
+                    "unit": "4px",
+                    "density-comfortable": "16px",
+                    "container-margin-desktop": "32px",
+                    "gutter": "16px",
+                    "density-dense": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "label-caps": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 w-full sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="p-2 -ml-2 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Abrir Disputa</h1>
+</div>
+<div class="flex items-center">
+<button class="p-2 text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high transition-colors rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-md mx-auto px-container-margin-mobile pt-6 pb-32 space-y-6">
+<!-- 1. Order Summary Card -->
+<section class="bg-surface-container-lowest border border-outline-variant p-density-comfortable rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-3">
+<div class="space-y-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ID DO PEDIDO</span>
+<p class="font-data-mono text-data-mono text-primary font-bold">#ORD-2024-9982</p>
+</div>
+<div class="bg-error-container text-on-error-container px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                    Reprovado na Qualidade
+                </div>
+</div>
+<div class="h-[1px] bg-outline-variant w-full my-3"></div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<p class="font-body-md font-semibold">Peça Automotiva X-230</p>
+<p class="font-body-sm text-on-surface-variant">Lote: B2-901 • Qtd: 12 un</p>
+</div>
+</div>
+</section>
+<!-- 2. Dispute Reason Selection (Nexo Causal) -->
+<section class="space-y-4">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-1">Nexo Causal</h2>
+<p class="font-body-sm text-on-surface-variant">Selecione quem você acredita ser o responsável pela falha.</p>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Client Card -->
+<button class="cause-card flex flex-col items-center p-4 border border-outline-variant rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all active:scale-95" onclick="selectCause(this)">
+<span class="material-symbols-outlined text-primary mb-2">person</span>
+<span class="font-label-caps text-label-caps">Cliente</span>
+</button>
+<!-- Supplier Card -->
+<button class="cause-card flex flex-col items-center p-4 border-2 border-primary bg-primary-container/10 rounded-xl transition-all active:scale-95 shadow-sm" onclick="selectCause(this)">
+<span class="material-symbols-outlined text-primary mb-2 active-fill">factory</span>
+<span class="font-label-caps text-label-caps text-primary">Fornecedor</span>
+</button>
+<!-- Logistics Card -->
+<button class="cause-card flex flex-col items-center p-4 border border-outline-variant rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all active:scale-95" onclick="selectCause(this)">
+<span class="material-symbols-outlined text-primary mb-2">local_shipping</span>
+<span class="font-label-caps text-label-caps">Logística</span>
+</button>
+<!-- Tenant Card -->
+<button class="cause-card flex flex-col items-center p-4 border border-outline-variant rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all active:scale-95" onclick="selectCause(this)">
+<span class="material-symbols-outlined text-primary mb-2">apartment</span>
+<span class="font-label-caps text-label-caps">Inquilino</span>
+</button>
+</div>
+</section>
+<!-- 3. Description Field -->
+<section class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant block">DESCRIÇÃO DA DISPUTA</label>
+<textarea class="w-full h-32 p-4 bg-surface-container-lowest border border-outline text-on-surface rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none resize-none font-body-md" placeholder="Detalhe o ocorrido, as condições do recebimento e por que a qualidade foi reprovada..."></textarea>
+</section>
+<!-- 4. Evidence Attachment -->
+<section class="space-y-3">
+<div class="flex justify-between items-end">
+<label class="font-label-caps text-label-caps text-on-surface-variant">EVIDÊNCIAS E DOCUMENTOS</label>
+<span class="font-body-sm text-on-surface-variant">1/5 arquivos</span>
+</div>
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<!-- Existing Attachment -->
+<div class="relative flex-shrink-0 w-28 h-28 rounded-xl overflow-hidden border border-outline-variant group">
+<img alt="Foto da Falha" class="w-full h-full object-cover" data-alt="A detailed high-angle close-up photograph showing a metallic industrial spare part with a visible surface fracture. The lighting is crisp and cool, highlighting the industrial texture of the metal in a professional laboratory setting. The background is a clean, out-of-focus white surface, maintaining a corporate and analytical aesthetic suitable for a quality control documentation process." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASZb-KsSYx4ioeQxJOrSE04mS1O34QNGdlEtqsinWdhwRltWExlOziaFBUZmGnEW73JbQKgyUx_9s5Fe_Py89ryCZIQ6qKIUPSvdfC7DMbVzKQGOHOZxnNxne0bWcYdMLJ2SkR4i-iI72VNerXpjyp-fdBKtm4ClL9BFbqbNJWiD1dKQmSxqaBCzAEnDIarzElykJGsXv6QwUzwsDYzbtJM9v-I4j2P3ZPUgXFLM_oJGlRXRdTTfPtXCXQaMSawnF9iZK45VAPfGeh"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 transition-opacity">
+<button class="bg-error text-on-error p-1.5 rounded-full hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-black/60 p-1">
+<p class="text-[8px] text-white truncate text-center">Foto da Falha.jpg</p>
+</div>
+</div>
+<!-- Empty Slot / Upload Trigger -->
+<button class="flex-shrink-0 w-28 h-28 rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary hover:bg-primary-container/5 transition-all">
+<span class="material-symbols-outlined text-3xl">add_a_photo</span>
+<span class="font-label-caps text-[9px] mt-1">ANEXAR NOVO</span>
+</button>
+</div>
+</section>
+<!-- 5. Financial Impact Notice -->
+<section class="bg-tertiary-fixed text-on-tertiary-fixed p-4 rounded-xl border border-tertiary-fixed-dim flex gap-3 shadow-sm animate-pulse">
+<span class="material-symbols-outlined shrink-0 text-tertiary">lock</span>
+<div>
+<p class="font-body-sm font-bold">Aviso de Impacto Financeiro</p>
+<p class="font-body-sm leading-relaxed opacity-90">O valor de custódia de <span class="font-bold">R$ 4.250,00</span> será BLOQUEADO imediatamente e permanecerá retido até a resolução final desta disputa.</p>
+</div>
+</section>
+</main>
+<!-- 6. Action Buttons Footer -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface dark:bg-surface-dim border-t border-outline-variant p-container-margin-mobile flex flex-col gap-2 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<button class="w-full py-4 bg-primary text-on-primary font-bold rounded-xl shadow-lg active:scale-[0.98] transition-all hover:brightness-110 flex items-center justify-center gap-2">
+            Confirmar Abertura
+            <span class="material-symbols-outlined">gavel</span>
+</button>
+<button class="w-full py-3 bg-transparent text-primary font-semibold rounded-xl active:scale-[0.98] transition-all hover:bg-surface-container-high">
+            Cancelar
+        </button>
+</footer>
+<!-- Bottom Nav (Hidden on this transactional screen as per Shell Visibility Rules) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-40 flex justify-around items-center h-16 px-4 pb-safe bg-surface dark:bg-surface-dim shadow-lg hidden">
+<!-- Suppressed as per the "Linear/Transactional" rule in the guidelines -->
+</nav>
+<script>
+        function selectCause(element) {
+            // Remove active classes from all cards
+            document.querySelectorAll('.cause-card').forEach(card => {
+                card.classList.remove('border-2', 'border-primary', 'bg-primary-container/10', 'shadow-sm');
+                card.classList.add('border', 'border-outline-variant', 'bg-surface-container-low');
+                
+                const icon = card.querySelector('.material-symbols-outlined');
+                const label = card.querySelector('.font-label-caps');
+                
+                icon.classList.remove('active-fill');
+                label.classList.remove('text-primary');
+            });
+
+            // Add active classes to clicked card
+            element.classList.add('border-2', 'border-primary', 'bg-primary-container/10', 'shadow-sm');
+            element.classList.remove('border', 'border-outline-variant', 'bg-surface-container-low');
+            
+            const icon = element.querySelector('.material-symbols-outlined');
+            const label = element.querySelector('.font-label-caps');
+            
+            icon.classList.add('active-fill');
+            label.classList.add('text-primary');
+        }
+
+        // Simple interaction for description field focus
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('focus', () => {
+            textarea.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+</body></html>

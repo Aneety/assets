@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aprovação de Qualidade - Aneety Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#241a00",
+                        "tertiary": "#765b00",
+                        "surface-tint": "#6750a4",
+                        "on-surface": "#1d1b20",
+                        "primary-fixed-dim": "#cfbcff",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e6e0e9",
+                        "inverse-on-surface": "#f5eff7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#ded8e0",
+                        "primary": "#4f378a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ece6ee",
+                        "primary-container": "#6750a4",
+                        "surface-variant": "#e6e0e9",
+                        "on-primary-fixed": "#22005d",
+                        "surface-bright": "#fdf7ff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#c9a74d",
+                        "inverse-surface": "#322f35",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "surface": "#fdf7ff",
+                        "primary-fixed": "#e9ddff",
+                        "on-primary-container": "#e0d2ff",
+                        "on-secondary-container": "#645a7d",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "tertiary-fixed": "#ffdf93",
+                        "outline-variant": "#cbc4d2",
+                        "on-secondary-fixed": "#1f1635",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#494551",
+                        "inverse-primary": "#cfbcff",
+                        "background": "#fdf7ff",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "surface-container": "#f2ecf4",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "on-background": "#1d1b20",
+                        "secondary-container": "#e1d4fd",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#63597c",
+                        "on-tertiary-container": "#503d00",
+                        "surface-container-low": "#f8f2fa",
+                        "secondary-fixed": "#e9ddff",
+                        "outline": "#7a7582"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "density-comfortable": "16px",
+                        "unit": "4px",
+                        "density-dense": "8px",
+                        "container-margin-desktop": "32px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbc4d2; border-radius: 10px; }
+        .pulse-info { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen flex">
+<!-- NavigationDrawer (Shared Component Logic) -->
+<aside class="hidden md:flex flex-col h-full py-4 bg-surface-container-low border-r border-outline-variant fixed left-0 top-0 w-[240px] z-50">
+<div class="px-6 mb-8 flex flex-col items-start">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h1 class="font-headline-sm text-headline-sm font-black text-primary">Aneety</h1>
+</div>
+<div class="flex items-center gap-3 p-2 w-full rounded-xl bg-surface-container">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIbrI7qMGJmPyo1ems9HU5vJxj0h7687Pd28Q_P9Yd9baBVgMgr7BS9qJq8ZKLoyaRltdNWG0RI2poepisiVZITTD03rjQcUc7AKVrrvv_O4_j_EO8dtjiqWmL0daKcwO2YK6MfjC7Tu_-5qIIjFusf9LU2KSgXfsgugfjyTi-ozemqDPcvW26mi3wXndk3PTLePi4CMaW2rBSpuyOmT0m13cSDUCdiSD_qDzfgNFa2KcNua4k6TIbPjuWNotOiYESr3ld6PYA2xNU"/>
+</div>
+<div class="overflow-hidden">
+<p class="font-body-md text-primary font-bold truncate">Operator Name</p>
+<p class="text-xs text-on-surface-variant truncate">Back-office Admin</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-surface-variant px-4 py-3 mx-2 flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="bg-secondary-container text-on-secondary-container font-bold rounded-full mx-2 px-4 py-3 flex items-center gap-3 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 mx-2 flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">package</span>
+<span class="font-body-md text-body-md">Inventory</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 mx-2 flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-body-md text-body-md">Messages</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 mx-2 flex items-center gap-3 hover:bg-surface-container-highest transition-all duration-200 ease-in-out mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 md:ml-[240px] flex flex-col h-full bg-background overflow-hidden">
+<!-- TopAppBar (Shared Component Logic) -->
+<header class="flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 w-full sticky top-0 z-50 bg-surface shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined md:hidden">menu</span>
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Aprovação de Qualidade</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="px-3 py-1 bg-tertiary-container/20 text-tertiary rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary pulse-info"></span>
+<span class="font-label-caps text-label-caps uppercase">Pendente de Qualidade</span>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</div>
+</header>
+<!-- Breadcrumbs & Context -->
+<div class="px-container-margin-mobile md:px-container-margin-desktop py-4 bg-surface-container-lowest border-b border-outline-variant flex items-center gap-2">
+<span class="text-on-surface-variant font-body-sm text-body-sm">Orders</span>
+<span class="material-symbols-outlined text-sm text-outline">chevron_right</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">#ORD-2024-9982</span>
+<span class="material-symbols-outlined text-sm text-outline">chevron_right</span>
+<span class="text-primary font-bold font-body-sm text-body-sm">Quality Review</span>
+</div>
+<!-- Main Workspace: Two Column Layout -->
+<div class="flex-1 flex flex-col md:flex-row overflow-hidden bg-surface-container-low">
+<!-- Left Column: Evidence Gallery -->
+<section class="flex-1 flex flex-col p-4 md:p-6 overflow-hidden border-r border-outline-variant">
+<!-- Large Preview Area -->
+<div class="relative flex-1 bg-black rounded-xl overflow-hidden flex items-center justify-center group">
+<img alt="Main Quality Evidence" class="max-w-full max-h-full object-contain transition-transform duration-300" data-alt="A high-resolution, sharp macro photograph of a precision-engineered industrial component on a clean workbench. The lighting is clinical and bright, characteristic of a professional quality control laboratory, highlighting fine metallic textures and perfect edges. The mood is sterile, technical, and focused on absolute accuracy in a modern B2B manufacturing environment." id="main-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBLVlAtqoUdUu4flP4fxM0gF0gDe4Jo0G4yDmfDYYE25fQN5g0tep-wnBMcH4GNwmT6u2FzGIQbGnHxPpzwIqdFxhys5xYx6TgEn6y3fUn3-tnMbRKIWZMpVSokaPwLXPfbiJttiXUSF6xVrNK8VpEJzi9cZsXXNmcUr4fLpXP2xRN3wBaUwk6_ofoB8QH0SKKQr63VCxzm96CA4DECD9bv47UVbB0DZaq4cCyRWJfMn1dmq_ARk0R0bx4yNIraunma8nBP3XCwUtl"/>
+<!-- Zoom/Rotate Controls -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-surface/90 backdrop-blur-md p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">zoom_in</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">zoom_out</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors" onclick="rotateImage()"><span class="material-symbols-outlined">rotate_right</span></button>
+<div class="w-[1px] h-6 bg-outline-variant mx-1"></div>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">fullscreen</span></button>
+</div>
+<!-- Floating Metadata -->
+<div class="absolute top-6 left-6 bg-black/50 backdrop-blur-md text-white p-3 rounded-lg font-data-mono text-data-mono">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>24/05/2024 - 14:32:01</span>
+</div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>-23.5505, -46.6333 (São Paulo, SP)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">person</span>
+<span>Field Technician ID: #FT-882</span>
+</div>
+</div>
+</div>
+<!-- Thumbnails -->
+<div class="mt-6 flex gap-4 overflow-x-auto pb-2 custom-scrollbar">
+<button class="flex-shrink-0 w-24 h-24 rounded-lg border-4 border-primary overflow-hidden relative group">
+<img class="w-full h-full object-cover" data-alt="Close up thumbnail of a machined part for quality inspection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAax0U6Zzimd53TqdmuHiwdUw67iCKwgJX9l8eL9eI-kzr8_yt7rXUvWOMkVQ2gLJm-RJRpo50kuq0VsR0ebvUzuLy6JpFEGUkn0PyzV5wqBzxlvDMB02u7avSgRtvS9ryNsPkykNvkiZTcCNyAazTSlJkfHqR2AObqN2W-MPiNlSEcWZJ4YExmCag-fDW6BPZM_BCFvWTrBxXg9RIbVPGjElRTsJ32llvXHN8qGS93E-c9PT9_HJvweCwOQxEDr_XaVEX-2GLRvJM5"/>
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
+<span class="text-[10px] font-bold text-white bg-primary px-1 rounded">PHOTO 1</span>
+</div>
+</button>
+<button class="flex-shrink-0 w-24 h-24 rounded-lg border-2 border-transparent hover:border-outline-variant overflow-hidden relative grayscale hover:grayscale-0 transition-all">
+<img class="w-full h-full object-cover" data-alt="Image of a product label showing barcode and manufacturing details for verification." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDRbi3C0_4eGY77lpFhM0NkEVCW14g2s7NFD0gIpQ5aoDHIZMYCQ7txgrpGeZGX4Wcn2aT2FkSrEN_ZUFmE181H_VQj2bJA866NwpRKkWNOAzQ5T0JEMpOYkThkNN5GgoF1xwQJP6tiS3-Ew-t-0oFByRtrhifoaYOHin3VUTm1wuxoJLgjMNCT59ZNq6qXB5gRoAatRWK2keK8pp2lfhm1jUNqKLZoOZF_IWNmStFTYWV_7Vv6sBZ1GmM7N6BZ3X-IttZlbXXS_0x"/>
+<div class="absolute bottom-1 left-1 bg-black/60 text-white text-[8px] px-1 rounded uppercase">Label Doc</div>
+</button>
+<button class="flex-shrink-0 w-24 h-24 rounded-lg border-2 border-transparent hover:border-outline-variant overflow-hidden relative grayscale hover:grayscale-0 transition-all flex items-center justify-center bg-surface-container">
+<span class="material-symbols-outlined text-4xl text-outline">signature</span>
+<div class="absolute bottom-1 left-1 bg-black/60 text-white text-[8px] px-1 rounded uppercase">Signature</div>
+</button>
+<button class="flex-shrink-0 w-24 h-24 rounded-lg border-2 border-transparent hover:border-outline-variant overflow-hidden relative grayscale hover:grayscale-0 transition-all">
+<img class="w-full h-full object-cover" data-alt="Technician checking a box for shipment, ensuring correct dimensions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyrPX55UDewPInHenr6foZAg0yWp-USQh1E0TX_P1vw7A1BDu_G_BK62ngKMxxIFFUF4cmk6yf08t70wkXMbWemNplXurkY-bsF7l6UMVjzQ_2eCp9rcgAhv_oryw5MswHafyipIPEJbPkpGat_BGN8Su6mTYzYG7dFFIZYjAgZX3X4V_L0rmAtd0eviqQbGhD-shU_uFzC-nJmc84njsxGqfUSrx2bJhIVnbVW8lHVjXTo3YAxqFtZ-ALpbhYUi7WppSwfUQWr1c6"/>
+<div class="absolute bottom-1 left-1 bg-black/60 text-white text-[8px] px-1 rounded uppercase">Package</div>
+</button>
+</div>
+</section>
+<!-- Right Column: Review Panel -->
+<section class="w-full md:w-[420px] bg-surface flex flex-col h-full shadow-[-4px_0_12px_rgba(0,0,0,0.02)]">
+<div class="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-8">
+<!-- Order Summary Card -->
+<div>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4 tracking-wider">Order Summary</h3>
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Precision Dental Implant</p>
+<p class="text-primary font-bold font-data-mono">#ORD-2024-9982</p>
+</div>
+<span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded text-[10px] font-bold">BATCH A-12</span>
+</div>
+<div class="grid grid-cols-2 gap-y-3">
+<div>
+<p class="text-xs text-on-surface-variant">Client</p>
+<p class="font-body-md font-semibold">Odontos Advanced S.A.</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Service Type</p>
+<p class="font-body-md font-semibold">Custom Milling</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Checklist -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Quality Checklist</h3>
+<span class="text-xs text-primary font-bold">3 of 5 completed</span>
+</div>
+<div class="space-y-3">
+<label class="flex items-center p-3 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline" type="checkbox"/>
+<span class="ml-3 font-body-md">Acabamento superficial limpo</span>
+<span class="ml-auto material-symbols-outlined text-green-600">check_circle</span>
+</label>
+<label class="flex items-center p-3 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline" type="checkbox"/>
+<span class="ml-3 font-body-md">Dimensões conforme projeto</span>
+<span class="ml-auto material-symbols-outlined text-green-600">check_circle</span>
+</label>
+<label class="flex items-center p-3 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline" type="checkbox"/>
+<span class="ml-3 font-body-md">Etiqueta de rastreio legível</span>
+<span class="ml-auto material-symbols-outlined text-green-600">check_circle</span>
+</label>
+<label class="flex items-center p-3 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary border-outline" type="checkbox"/>
+<span class="ml-3 font-body-md">Ausência de rebarbas ou trincas</span>
+</label>
+<label class="flex items-center p-3 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary border-outline" type="checkbox"/>
+<span class="ml-3 font-body-md">Assinatura do técnico responsável</span>
+</label>
+</div>
+</div>
+<!-- Rejection Reason (Conditional appearance) -->
+<div class="hidden animate-in fade-in slide-in-from-top duration-300" id="rejection-box">
+<h3 class="font-label-caps text-label-caps text-error uppercase tracking-wider mb-2">Motivo da Rejeição</h3>
+<textarea class="w-full h-32 bg-error-container/20 border-error text-on-error-container p-3 rounded-xl focus:ring-error focus:border-error placeholder:text-error/50 font-body-md" placeholder="Descreva detalhadamente o motivo da não conformidade..."></textarea>
+<p class="text-[10px] text-error mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">info</span>
+                            Campo obrigatório para reprovação
+                        </p>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="p-6 bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex gap-4">
+<button class="flex-1 py-3 px-4 border-2 border-error text-error font-bold rounded-xl hover:bg-error/5 transition-colors flex items-center justify-center gap-2 active:scale-95" id="btn-reprovar" onclick="toggleRejection(true)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">close</span>
+                            Reprovar
+                        </button>
+<button class="flex-[1.5] py-3 px-4 bg-primary text-on-primary font-bold rounded-xl hover:bg-primary-container transition-all shadow-md active:scale-95 flex items-center justify-center gap-2" id="btn-aprovar">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">check_circle</span>
+                            Aprovar Entrega
+                        </button>
+</div>
+</div>
+</section>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-1">
+<span class="material-symbols-outlined">request_quote</span>
+<span class="font-label-caps text-label-caps">Quotes</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2">
+<span class="material-symbols-outlined">task_alt</span>
+<span class="font-label-caps text-label-caps">Tasks</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</div>
+</nav>
+</main>
+<script>
+        let rotation = 0;
+        function rotateImage() {
+            rotation = (rotation + 90) % 360;
+            document.getElementById('main-preview').style.transform = `rotate(${rotation}deg)`;
+        }
+
+        function toggleRejection(active) {
+            const box = document.getElementById('rejection-box');
+            const btnApprove = document.getElementById('btn-aprovar');
+            const btnReject = document.getElementById('btn-reprovar');
+            
+            if (box.classList.contains('hidden')) {
+                box.classList.remove('hidden');
+                btnApprove.classList.add('opacity-50', 'pointer-events-none');
+                btnReject.classList.replace('border-error', 'bg-error');
+                btnReject.classList.replace('text-error', 'text-on-error');
+                btnReject.innerHTML = `<span class="material-symbols-outlined">report</span> Confirmar Reprovação`;
+            } else {
+                box.classList.add('hidden');
+                btnApprove.classList.remove('opacity-50', 'pointer-events-none');
+                btnReject.classList.replace('bg-error', 'border-error');
+                btnReject.classList.replace('text-on-error', 'text-error');
+                btnReject.innerHTML = `<span class="material-symbols-outlined">close</span> Reprovar`;
+            }
+        }
+    </script>
+</body></html>

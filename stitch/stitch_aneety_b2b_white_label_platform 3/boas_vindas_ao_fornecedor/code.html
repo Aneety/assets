@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bem-vindo à Aneety - Onboarding de Fornecedores</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#fdf7ff",
+                      "on-primary-fixed-variant": "#4f378a",
+                      "surface-container-highest": "#e6e0e9",
+                      "background": "#fdf7ff",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed-dim": "#cfbcff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#22005d",
+                      "secondary": "#63597c",
+                      "tertiary-fixed-dim": "#e7c365",
+                      "secondary-container": "#e1d4fd",
+                      "surface-container-low": "#f8f2fa",
+                      "primary-fixed": "#e9ddff",
+                      "on-tertiary-fixed-variant": "#594400",
+                      "on-tertiary-container": "#503d00",
+                      "secondary-fixed": "#e9ddff",
+                      "outline": "#7a7582",
+                      "on-secondary-fixed": "#1f1635",
+                      "inverse-primary": "#cfbcff",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#e0d2ff",
+                      "on-primary": "#ffffff",
+                      "on-surface": "#1d1b20",
+                      "on-secondary-container": "#645a7d",
+                      "tertiary": "#765b00",
+                      "surface-container-high": "#ece6ee",
+                      "on-secondary-fixed-variant": "#4b4263",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e6e0e9",
+                      "tertiary-fixed": "#ffdf93",
+                      "on-error": "#ffffff",
+                      "surface-container": "#f2ecf4",
+                      "on-background": "#1d1b20",
+                      "surface-tint": "#6750a4",
+                      "surface": "#fdf7ff",
+                      "on-tertiary-fixed": "#241a00",
+                      "primary-container": "#6750a4",
+                      "secondary-fixed-dim": "#cdc0e9",
+                      "inverse-on-surface": "#f5eff7",
+                      "tertiary-container": "#c9a74d",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#cbc4d2",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#4f378a",
+                      "on-surface-variant": "#494551",
+                      "inverse-surface": "#322f35",
+                      "surface-dim": "#ded8e0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "container-margin-mobile": "16px",
+                      "density-dense": "8px",
+                      "density-comfortable": "16px",
+                      "container-margin-desktop": "32px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "data-mono": ["JetBrains Mono"],
+                      "display-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-container-margin-mobile h-14 bg-surface dark:bg-surface-dim shadow-sm dark:shadow-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer transition-colors duration-200 active:scale-95 hover:bg-surface-container-high dark:hover:bg-surface-container-highest p-2 rounded-full">menu</span>
+<h1 class="font-headline-sm text-headline-sm-mobile font-bold text-primary dark:text-primary-fixed">Aneety</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Profile picture of the technician" class="w-full h-full object-cover" data-alt="A professional headshot of a smiling middle-aged Brazilian male dental technician in a clean, modern lab setting. He is wearing a minimalist navy blue scrub top. The lighting is bright and even, highlighting a clean-cut appearance. The background features high-end laboratory equipment softly out of focus, maintaining a corporate yet approachable B2B tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDztB6Xn8oqAgHpfRdzBvR0wutow_SbbtsESx48qCF3qN0pPNIVFMVB-0uSYkcj54bbq56rTMQHkHZV14CjvyoM16M1ej35PhkNXn_y8tWm1nUyQ5XffJiBGmkgYEpaSPGDfKTsnYXGwnD2_SmsTY6V5VXREagFlse-NV0egjin5IjAWi6QII6xLAQEJ30FWgH9u2nkwpsLFzb40TZg11Hqtyh8iW2gYGxgwBKNe6Gm50JKv_P32aODMSCI03NdeKnJzvz1UgjUE7Fi"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-20 px-container-margin-mobile md:px-container-margin-desktop max-w-[1440px] mx-auto w-full">
+<!-- Bento Grid Layout for Onboarding Hero -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- Welcome & Narrative (Main Card) -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-8 flex flex-col justify-center relative overflow-hidden shadow-sm">
+<!-- Decorative background element -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-fixed-dim/20 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<span class="inline-block bg-secondary-container text-on-secondary-container font-label-caps text-label-caps px-3 py-1 rounded-full mb-6">BEM-VINDO AO ECOSSISTEMA</span>
+<h2 class="font-display-lg text-display-lg text-primary mb-4">Sua jornada rumo ao crescimento B2B começa aqui.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl">
+                        A plataforma Aneety conecta fornecedores de excelência a uma rede global de parceiros comerciais. Estamos aqui para simplificar suas operações, automatizar suas cotações e impulsionar suas vendas através de inteligência de dados e processos otimizados.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 items-center">
+<button class="w-full sm:w-auto px-8 py-4 bg-primary text-on-primary rounded-full font-headline-sm transition-all duration-300 ease-in-out hover:shadow-lg active:scale-95 flex items-center justify-center gap-2">
+<span>Começar Onboarding</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full sm:w-auto px-8 py-4 bg-surface text-primary border border-primary rounded-full font-headline-sm transition-all duration-300 ease-in-out hover:bg-primary-container/10 active:scale-95">
+                            Ver Tour da Plataforma
+                        </button>
+</div>
+</div>
+</div>
+<!-- Visual Representation Card -->
+<div class="lg:col-span-5 bg-surface-container rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="h-64 lg:h-full relative">
+<img alt="B2B Partnership" class="w-full h-full object-cover" data-alt="A sophisticated scene of a diverse group of business professionals shaking hands in a high-tech, sun-drenched corporate office. The environment is minimalist and high-end, featuring glass partitions and digital displays showing abstract growth charts in shades of deep purple and gold. The lighting is warm and cinematic, suggesting trust and successful partnership. The overall aesthetic is professional, modern, and high-utility B2B." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGDsolBQ7L1Ze7FjH0nA6glmE_G-YQAgXgMfhyR95oP-rB2tdRWDUFoA06A4sXAvV8HV4hzjh66NR_32_N_sLrQmZuUcXa82riPCu0ZpVTK7_FdpBLy-jAnHyo_FIF1P7He0m6ycwHzpdw5Cz5BjIJOncL9bHxcnPSKw8xjYsVgQrNqWgmxPt-h0Jzy0QuPzEaNUOun84geVFSY_PbGUiF7KjHKTwspMquOQsv6y5STdu2oKtUtFQkjoitQPIfZA3J4OPv6Ei_Yyxp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<p class="text-on-primary font-headline-sm">Construindo pontes entre o seu produto e o mercado ideal.</p>
+</div>
+</div>
+</div>
+<!-- Value Props Row -->
+<div class="lg:col-span-4 bg-surface-container-low border border-outline-variant p-6 rounded-xl transition-all hover:shadow-md">
+<div class="w-12 h-12 bg-tertiary-container text-on-tertiary-container rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Escalabilidade Imediata</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Alcance novos mercados B2B sem a necessidade de aumentar sua equipe de vendas direta.</p>
+</div>
+<div class="lg:col-span-4 bg-surface-container-low border border-outline-variant p-6 rounded-xl transition-all hover:shadow-md">
+<div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Dashboard em Tempo Real</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Acompanhe cada pedido, cotação e tarefa com transparência total e dados analíticos precisos.</p>
+</div>
+<div class="lg:col-span-4 bg-surface-container-low border border-outline-variant p-6 rounded-xl transition-all hover:shadow-md">
+<div class="w-12 h-12 bg-primary-fixed text-on-primary-fixed rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Segurança &amp; Conformidade</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Processos robustos que garantem transações seguras e conformidade com os padrões da indústria.</p>
+</div>
+</div>
+<!-- Transactional Help Section -->
+<section class="mt-12 py-12 border-t border-outline-variant">
+<div class="max-w-3xl">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">O que esperar do onboarding?</h2>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-body-md font-bold">1</div>
+<div class="w-0.5 h-full bg-outline-variant"></div>
+</div>
+<div class="pb-6">
+<h4 class="font-body-lg font-bold text-on-surface">Configuração de Perfil</h4>
+<p class="font-body-md text-on-surface-variant">Informações básicas da sua empresa e contatos comerciais.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant flex items-center justify-center text-body-md font-bold">2</div>
+<div class="w-0.5 h-full bg-outline-variant"></div>
+</div>
+<div class="pb-6">
+<h4 class="font-body-lg font-bold text-on-surface">Catálogo de Produtos</h4>
+<p class="font-body-md text-on-surface-variant">Upload e categorização dos itens que você deseja oferecer na rede.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant flex items-center justify-center text-body-md font-bold">3</div>
+</div>
+<div>
+<h4 class="font-body-lg font-bold text-on-surface">Verificação &amp; Ativação</h4>
+<p class="font-body-md text-on-surface-variant">Análise rápida da nossa equipe para você começar a receber pedidos.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-16 bg-surface dark:bg-surface-dim shadow-lg rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 transition-all duration-300 ease-in-out active:scale-90 hover:bg-surface-container dark:hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-caps text-label-caps">Pedidos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 transition-all duration-300 ease-in-out active:scale-90 hover:bg-surface-container dark:hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-label-caps text-label-caps">Cotações</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 transition-all duration-300 ease-in-out active:scale-90 hover:bg-surface-container dark:hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-caps text-label-caps">Tarefas</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 transition-all duration-300 ease-in-out active:scale-90 hover:bg-surface-container dark:hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-caps text-label-caps">Perfil</span>
+</a>
+</nav>
+<!-- JavaScript for micro-interactions -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const startBtn = document.querySelector('button.bg-primary');
+            if (startBtn) {
+                startBtn.addEventListener('click', () => {
+                    // Visual feedback for interaction
+                    startBtn.classList.add('scale-95');
+                    setTimeout(() => startBtn.classList.remove('scale-95'), 100);
+                });
+            }
+        });
+    </script>
+</body></html>

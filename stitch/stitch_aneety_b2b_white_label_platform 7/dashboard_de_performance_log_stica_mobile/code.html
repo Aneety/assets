@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logistics Performance - Aneety Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#7a7582",
+                    "surface-container-highest": "#e6e0e9",
+                    "tertiary-container": "#c9a74d",
+                    "secondary-container": "#e1d4fd",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "surface-dim": "#ded8e0",
+                    "on-surface": "#1d1b20",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "secondary": "#63597c",
+                    "on-tertiary-fixed": "#241a00",
+                    "primary-fixed": "#e9ddff",
+                    "primary": "#4f378a",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#ffdf93",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "on-surface-variant": "#494551",
+                    "inverse-primary": "#cfbcff",
+                    "surface-variant": "#e6e0e9",
+                    "surface": "#fdf7ff",
+                    "on-secondary-container": "#645a7d",
+                    "outline-variant": "#cbc4d2",
+                    "primary-fixed-dim": "#cfbcff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#e0d2ff",
+                    "surface-bright": "#fdf7ff",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#e9ddff",
+                    "surface-container-high": "#ece6ee",
+                    "on-secondary-fixed": "#1f1635",
+                    "on-tertiary-container": "#503d00",
+                    "on-error-container": "#93000a",
+                    "on-background": "#1d1b20",
+                    "surface-tint": "#6750a4",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "inverse-surface": "#322f35",
+                    "inverse-on-surface": "#f5eff7",
+                    "background": "#fdf7ff",
+                    "surface-container": "#f2ecf4",
+                    "tertiary": "#765b00",
+                    "on-primary-fixed": "#22005d",
+                    "surface-container-low": "#f8f2fa",
+                    "error": "#ba1a1a",
+                    "primary-container": "#6750a4",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#594400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-margin-desktop": "32px",
+                    "density-comfortable": "16px",
+                    "container-margin-mobile": "16px",
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "density-dense": "8px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Inter', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .chart-bar {
+            transition: height 1s ease-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-background border-b border-outline-variant dark:border-outline flex items-center justify-between px-gutter h-14">
+<div class="flex items-center gap-4">
+<button class="text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface">Performance Logística</h1>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<main class="max-w-md mx-auto p-gutter space-y-6">
+<!-- Key Metrics Horizontal Scroll -->
+<section class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+<!-- Metric Card 1 -->
+<div class="min-w-[160px] flex-1 bg-surface-container border border-outline-variant rounded-xl p-4 shadow-sm">
+<span class="material-symbols-outlined text-primary mb-2">schedule</span>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Avg Delivery Time</p>
+<p class="font-headline-md text-headline-md text-primary mt-1">42<span class="text-body-sm">min</span></p>
+<div class="flex items-center mt-2 text-green-600">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span class="text-xs font-medium ml-1">12% faster</span>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="min-w-[160px] flex-1 bg-surface-container border border-outline-variant rounded-xl p-4 shadow-sm">
+<span class="material-symbols-outlined text-tertiary mb-2" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Success Rate</p>
+<p class="font-headline-md text-headline-md text-on-surface mt-1">98.4<span class="text-body-sm">%</span></p>
+<div class="flex items-center mt-2 text-primary">
+<span class="material-symbols-outlined text-sm">stars</span>
+<span class="text-xs font-medium ml-1">Stable</span>
+</div>
+</div>
+<!-- Metric Card 3 -->
+<div class="min-w-[160px] flex-1 bg-surface-container border border-outline-variant rounded-xl p-4 shadow-sm">
+<span class="material-symbols-outlined text-secondary mb-2">local_shipping</span>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Deliveries</p>
+<p class="font-headline-md text-headline-md text-on-surface mt-1">1,284</p>
+<div class="flex items-center mt-2 text-green-600">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="text-xs font-medium ml-1">84 today</span>
+</div>
+</div>
+</section>
+<!-- Delivery Volume Visual (Bento Style Card) -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Volume de Entregas</h2>
+<p class="text-body-sm text-on-surface-variant">Últimos 7 dias</p>
+</div>
+<div class="flex items-center gap-2 bg-surface-variant rounded-full px-3 py-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-caps text-[10px] text-primary">LIVE UPDATES</span>
+</div>
+</div>
+<div class="h-40 flex items-end justify-between gap-2 px-2">
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-secondary-container rounded-t-sm" style="height: 40%"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">SEG</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-secondary-container rounded-t-sm" style="height: 65%"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">TER</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-secondary-container rounded-t-sm" style="height: 55%"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">QUA</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-primary rounded-t-sm" style="height: 90%"></div>
+<span class="font-label-caps text-[10px] text-primary">QUI</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-secondary-container rounded-t-sm" style="height: 75%"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">SEX</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-secondary-container rounded-t-sm" style="height: 30%"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">SAB</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="chart-bar w-full bg-secondary-container rounded-t-sm" style="height: 15%"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">DOM</span>
+</div>
+</div>
+</section>
+<!-- Top Performing Drivers -->
+<section class="space-y-4">
+<div class="flex justify-between items-center px-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Top Motoristas</h2>
+<button class="text-primary font-body-sm hover:underline">Ver Todos</button>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<!-- Driver 1 -->
+<div class="flex items-center p-4 border-b border-outline-variant last:border-0 hover:bg-surface-variant/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex-shrink-0 overflow-hidden relative border border-outline-variant">
+<img alt="Motorista Perfil" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged male courier wearing a clean, modern logistics uniform in purple and white. The lighting is soft and natural, emphasizing a friendly and reliable expression. The background is a clean, out-of-focus urban street during a bright day, maintaining a corporate light-mode aesthetic. High resolution and detailed skin textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChK3GiP4O329LU2dztzrDEdsCu9YtLb21Rhst-xYsLQrgSEMyB1QKHnJ3C449Mus-MS35WGKmMT51ymKwrm2teRSgEQgiB_S4dadAHhhCVGtC9eKesCVt6A3S2C2MkeDxjD98rpEELo-F9N_oAtKNayjy25o2hpIRsC3x3wqdEfw8wpdX5paQHl755oriw2D7gukMbXkt-DXlOkIK73rrnK1XV-FdlBCGN1QDMDQQX6mZ709f2fTgubharTAe0Tri2laczFeII3T3i"/>
+</div>
+<div class="ml-4 flex-1">
+<p class="font-body-md font-semibold text-on-surface">Ricardo Alves</p>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-tertiary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-body-sm text-on-surface-variant">4.9 • 328 entregas</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-[10px] font-bold">ONLINE</span>
+<span class="text-[10px] text-on-surface-variant mt-1">Nível Platinum</span>
+</div>
+</div>
+<!-- Driver 2 -->
+<div class="flex items-center p-4 border-b border-outline-variant last:border-0 hover:bg-surface-variant/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex-shrink-0 overflow-hidden relative border border-outline-variant">
+<img alt="Motorista Perfil" class="w-full h-full object-cover" data-alt="A portrait of a confident young female logistics operator smiling at the camera. She is wearing a modern corporate headset and a purple polo shirt. The scene is bright and airy with high-key lighting, reflecting a professional and efficient business environment. The background shows soft, blurred hints of a modern distribution center with high-tech equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0OSNoud1COW6egIYLZAXtGExbBQ_7r5mx2bzi3r3AP3efoFPlt9uyiA3ceVvF00U1abwP1A_N1GJ37DHpXyPVZ8BqFVnSlG8dl3zM7OSS9HNE4GZPOebQ4-VPs-GFNlq2j1dXiY2HqhfK4Y4xKY7yR61QaygWkMcMXbpNOAo3mu-vGKtKR0uBi8R271IZORo5JRcpRdLouKL4s1cop3pKaU5-5jOeqxUcEmikblD-RUoW70YyMtBv1YE5gGihxlBZUC22fLXyMEnk"/>
+</div>
+<div class="ml-4 flex-1">
+<p class="font-body-md font-semibold text-on-surface">Carla Mendes</p>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-tertiary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-body-sm text-on-surface-variant">4.8 • 291 entregas</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-[10px] font-bold">ONLINE</span>
+<span class="text-[10px] text-on-surface-variant mt-1">Nível Gold</span>
+</div>
+</div>
+<!-- Driver 3 -->
+<div class="flex items-center p-4 border-b border-outline-variant last:border-0 hover:bg-surface-variant/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex-shrink-0 overflow-hidden relative border border-outline-variant">
+<img alt="Motorista Perfil" class="w-full h-full object-cover" data-alt="Close-up portrait of a male delivery professional with a neat beard, wearing a corporate grey and purple vest. He has a warm, trustworthy smile. The lighting is bright and professionally studio-like, creating a clean light-mode visual. The background is a minimalist warehouse setting with subtle purple branding elements, reinforcing a corporate and organized identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALUjgAqYPhHyWtPYu-aG69lJgphhjawvJA9MdheWeYdXusqQn5dMRf26tYyX_DHcoiTqJhNx_snp2O5i9Ra99sw3GmeOM1HyP6Ag10gzQY0yzlIu4cIVCLYk_GOnh8LvpAHnII8M0x6icMK0OXZ94r_WUPe5WESlB0_fUvoPgz1s_doCa3VVo2aEmkJe3TAwuWXSz1WFxPb4tr3Kdz1knARG5TmTKbaZJ-SqUqpmWsQLXBMGrlbUsd67TV_dy7YYsPbpurL_PnBkkf"/>
+</div>
+<div class="ml-4 flex-1">
+<p class="font-body-md font-semibold text-on-surface">Bruno Santos</p>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-tertiary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-body-sm text-on-surface-variant">4.8 • 274 entregas</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 bg-surface-variant text-on-surface-variant rounded-full text-[10px] font-bold">OFFLINE</span>
+<span class="text-[10px] text-on-surface-variant mt-1">Nível Gold</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Status Legend/Info -->
+<div class="p-4 bg-primary-container/10 rounded-xl border border-primary/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">info</span>
+<div class="space-y-1">
+<p class="font-body-sm font-semibold text-primary">Relatório em Tempo Real</p>
+<p class="text-body-sm text-on-surface-variant">Dados sincronizados há 2 minutos. O volume de hoje é 14% maior que a média semanal.</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface dark:bg-background border-t border-outline-variant dark:border-outline flex justify-around items-center h-16 px-2 shadow-sm">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-caps text-label-caps">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Account</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for chart bars on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach(bar => {
+                const targetHeight = bar.style.height;
+                bar.style.height = '0px';
+                setTimeout(() => {
+                    bar.style.height = targetHeight;
+                }, 200);
+            });
+        });
+    </script>
+</body></html>

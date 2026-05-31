@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DentalConnect - Solicitar Orçamento</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#cfbcff",
+                        "primary": "#4f378a",
+                        "inverse-surface": "#322f35",
+                        "on-secondary-container": "#645a7d",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-background": "#1d1b20",
+                        "surface-dim": "#ded8e0",
+                        "surface-container": "#f2ecf4",
+                        "surface-container-highest": "#e6e0e9",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "on-primary-fixed": "#22005d",
+                        "primary-fixed": "#e9ddff",
+                        "on-error-container": "#93000a",
+                        "background": "#fdf7ff",
+                        "secondary": "#63597c",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#ece6ee",
+                        "surface": "#fdf7ff",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "inverse-on-surface": "#f5eff7",
+                        "outline-variant": "#cbc4d2",
+                        "surface-tint": "#6750a4",
+                        "surface-container-low": "#f8f2fa",
+                        "tertiary-fixed": "#ffdf93",
+                        "inverse-primary": "#cfbcff",
+                        "surface-variant": "#e6e0e9",
+                        "secondary-container": "#e1d4fd",
+                        "on-primary-container": "#e0d2ff",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "on-tertiary-container": "#503d00",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#1f1635",
+                        "tertiary-container": "#c9a74d",
+                        "on-tertiary-fixed": "#241a00",
+                        "outline": "#7a7582",
+                        "on-surface-variant": "#494551",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "tertiary": "#765b00",
+                        "secondary-fixed": "#e9ddff",
+                        "surface-bright": "#fdf7ff",
+                        "primary-container": "#6750a4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1d1b20",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "density-dense": "8px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "32px",
+                        "density-comfortable": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            background-color: #fdf7ff;
+        }
+        .custom-scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-container-low flex items-center justify-between px-gutter h-14">
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-highest transition-colors p-2 rounded-full active:scale-95 duration-150">arrow_back</button>
+<span class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed-dim">Laboratório Central</span>
+</div>
+<div class="flex items-center">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-highest transition-colors p-2 rounded-full active:scale-95 duration-150">notifications</button>
+</div>
+</header>
+<main class="pb-24">
+<!-- Hero Section / Context -->
+<div class="px-gutter pt-gutter pb-density-comfortable">
+<div class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden mb-6">
+<div class="flex items-center p-density-comfortable gap-4">
+<img alt="Zirconia dental crown production" class="w-20 h-20 object-cover rounded-lg shadow-sm" src="https://lh3.googleusercontent.com/aida/ADBb0uhg27-vkdt_rGkOZ9Zyh8aNVKI2-cJgnvtOLwImDIyoW1fGlYMZVWjj-DugQQma1TcAg3LjeVXn2A-SaprPfw_vvTTp36oqcNSQlW2SbCn3LRQS1zpNY5fii3zU6PzI5OXl5iPKAQ3uqhpon7kdqk-9-ZDIWtkn9UHb3WKfNS3MFh3NnTz11kkQNnK6Hjr6xEjD3IHnpiwbhXY6i1uoNxZm8aQW8-4ukw-v5dlBEA6igqKNhbZEJOqVG7dn"/>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Solicitar Novo Orçamento</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Selecione os serviços e envie as evidências clínicas para análise do laboratório.</p>
+</div>
+</div>
+</div>
+<!-- Quote Form Container -->
+<form class="space-y-6" id="quote-form">
+<!-- Service Selection -->
+<section>
+<label class="block font-label-caps text-label-caps text-primary mb-2">TIPO DE SERVIÇO</label>
+<div class="grid grid-cols-2 gap-3">
+<label class="relative flex flex-col items-start p-4 bg-surface-container-lowest border-2 border-primary-container rounded-xl cursor-pointer ring-offset-2 focus-within:ring-2 ring-primary">
+<input checked="" class="sr-only" name="service_type" type="radio" value="coroa_zirconia"/>
+<span class="material-symbols-outlined text-primary mb-1" style="font-variation-settings: 'FILL' 1;">dentistry</span>
+<span class="font-body-md text-body-md font-bold text-on-surface">Coroa Zircônia</span>
+</label>
+<label class="relative flex flex-col items-start p-4 bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="sr-only" name="service_type" type="radio" value="inlay_onlay"/>
+<span class="material-symbols-outlined text-on-surface-variant mb-1">schema</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Inlay / Onlay</span>
+</label>
+</div>
+</section>
+<!-- Quantity -->
+<section>
+<label class="block font-label-caps text-label-caps text-primary mb-2" for="quantity">QUANTIDADE DE ELEMENTOS</label>
+<div class="flex items-center gap-4 bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-high p-1 rounded-full transition-colors" onclick="decrementQty()" type="button">remove</button>
+<input class="w-full text-center border-none bg-transparent focus:ring-0 font-headline-sm text-headline-sm" id="quantity" min="1" readonly="" type="number" value="1"/>
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-high p-1 rounded-full transition-colors" onclick="incrementQty()" type="button">add</button>
+</div>
+</section>
+<!-- Clinical Evidence Upload -->
+<section>
+<label class="block font-label-caps text-label-caps text-primary mb-2">EVIDÊNCIAS CLÍNICAS (FOTOS/SCANS)</label>
+<div class="flex flex-col gap-3">
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-6 flex flex-col items-center justify-center bg-surface-container-low hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-2">cloud_upload</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Upload de arquivos</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-center mt-1">Arraste scans STL ou fotos clínicas (.jpg, .png)</span>
+</div>
+<div class="flex gap-2 overflow-x-auto custom-scroll-hide">
+<div class="flex-shrink-0 relative w-16 h-16 rounded-lg bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">description</span>
+<div class="absolute -top-1 -right-1 bg-error text-on-error rounded-full p-0.5">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</div>
+</div>
+<div class="flex-shrink-0 w-16 h-16 rounded-lg border border-outline-variant border-dashed flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">add</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Clinical Notes -->
+<section>
+<label class="block font-label-caps text-label-caps text-primary mb-2" for="observations">OBSERVAÇÕES CLÍNICAS</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md placeholder:text-on-surface-variant/50" id="observations" placeholder="Descreva detalhes específicos, cor (Escala Vita), textura ou necessidades especiais..." rows="4"></textarea>
+</section>
+<!-- Delivery Preference -->
+<section>
+<label class="block font-label-caps text-label-caps text-primary mb-2">PREFERÊNCIA DE ENTREGA</label>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer focus-within:border-primary transition-all">
+<div class="flex items-center gap-3">
+<input checked="" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="delivery" type="radio" value="standard"/>
+<div>
+<span class="block font-body-md text-body-md font-semibold">Padrão (5-7 dias úteis)</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Logística regular inclusa</span>
+</div>
+</div>
+<span class="font-data-mono text-data-mono text-on-secondary-container">GRÁTIS</span>
+</label>
+<label class="flex items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer focus-within:border-primary transition-all">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="delivery" type="radio" value="urgent"/>
+<div>
+<div class="flex items-center gap-1">
+<span class="block font-body-md text-body-md font-semibold">Urgente (48h úteis)</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Prioridade na bancada de produção</span>
+</div>
+</div>
+<span class="font-data-mono text-data-mono text-primary font-bold">R$ 45,00</span>
+</label>
+</div>
+</section>
+<!-- Submit Button -->
+<div class="fixed bottom-14 left-0 w-full p-gutter bg-surface/80 backdrop-blur-md border-t border-outline-variant/30 md:hidden">
+<button class="w-full bg-primary text-on-primary font-headline-sm text-headline-sm py-4 rounded-full shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2" type="submit">
+                        Enviar Solicitação
+                        <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</form>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full flex justify-around items-center py-density-dense bg-surface-container shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50">
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all py-1 px-4 rounded-full" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary-fixed dark:text-on-primary-fixed rounded-full px-4 py-1 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all py-1 px-4 rounded-full" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-caps text-label-caps">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all py-1 px-4 rounded-full" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Account</span>
+</a>
+</nav>
+<script>
+        function incrementQty() {
+            const input = document.getElementById('quantity');
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decrementQty() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        // Radio Button Styling Logic
+        const serviceRadios = document.querySelectorAll('input[name="service_type"]');
+        serviceRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                serviceRadios.forEach(r => {
+                    const parent = r.parentElement;
+                    const icon = parent.querySelector('.material-symbols-outlined');
+                    const label = parent.querySelector('span:last-child');
+                    
+                    if (r.checked) {
+                        parent.classList.add('border-primary-container', 'bg-surface-container-lowest');
+                        parent.classList.remove('border-outline-variant', 'bg-transparent');
+                        icon.style.fontVariationSettings = "'FILL' 1";
+                        icon.classList.replace('text-on-surface-variant', 'text-primary');
+                        label.classList.replace('text-on-surface-variant', 'text-on-surface');
+                        label.classList.add('font-bold');
+                    } else {
+                        parent.classList.remove('border-primary-container', 'bg-surface-container-lowest');
+                        parent.classList.add('border-outline-variant', 'bg-transparent');
+                        icon.style.fontVariationSettings = "'FILL' 0";
+                        icon.classList.replace('text-primary', 'text-on-surface-variant');
+                        label.classList.replace('text-on-surface', 'text-on-surface-variant');
+                        label.classList.remove('font-bold');
+                    }
+                });
+            });
+        });
+
+        document.getElementById('quote-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Solicitação enviada com sucesso para o Laboratório Central!');
+        });
+    </script>
+</body></html>

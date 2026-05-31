@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aneety Lab Ops - Gerenciamento de Ordem #2948</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#ded8e0",
+                        "tertiary-fixed": "#ffdf93",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#e1d4fd",
+                        "on-tertiary-container": "#503d00",
+                        "surface-container-highest": "#e6e0e9",
+                        "on-secondary-container": "#645a7d",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-low": "#f8f2fa",
+                        "primary-container": "#6750a4",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "tertiary-container": "#c9a74d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#494551",
+                        "outline": "#7a7582",
+                        "secondary-fixed": "#e9ddff",
+                        "on-primary-fixed": "#22005d",
+                        "inverse-on-surface": "#f5eff7",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1d1b20",
+                        "tertiary": "#765b00",
+                        "surface-container": "#f2ecf4",
+                        "surface": "#fdf7ff",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#cbc4d2",
+                        "secondary": "#63597c",
+                        "surface-tint": "#6750a4",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ece6ee",
+                        "on-secondary-fixed": "#1f1635",
+                        "background": "#fdf7ff",
+                        "on-surface": "#1d1b20",
+                        "primary": "#4f378a",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#322f35",
+                        "surface-bright": "#fdf7ff",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#cfbcff",
+                        "on-primary-container": "#e0d2ff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "surface-variant": "#e6e0e9",
+                        "primary-fixed-dim": "#cfbcff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "density-dense": "8px",
+                        "container-margin-desktop": "32px",
+                        "density-comfortable": "16px",
+                        "gutter": "16px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        .step-active-pulse {
+            animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden md:flex flex-col py-4 h-full fixed left-0 top-0 h-full w-[240px] bg-surface-container-low border-r border-outline-variant z-40">
+<div class="px-6 mb-8">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Aneety Lab</h1>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-highest rounded-full transition-all cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-full px-4 py-3 mx-2 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<span class="font-body-md text-body-md">Orders</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-highest rounded-full transition-all cursor-pointer">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body-md text-body-md">Inventory</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-highest rounded-full transition-all cursor-pointer">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-md text-body-md">Technicians</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-highest rounded-full transition-all cursor-pointer mt-auto">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</div>
+</nav>
+<div class="mt-auto px-4 py-4 border-t border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">AL</div>
+<div class="overflow-hidden">
+<p class="font-body-md text-body-md font-semibold truncate">Aneety Lab Ops</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Station 04 - Milling</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-[240px] min-h-screen flex flex-col pb-20 md:pb-8">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-50 flex items-center justify-between px-container-margin-mobile md:px-container-margin-desktop h-14 w-full border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-highest rounded-full active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h2 class="font-headline-sm text-headline-sm text-primary">Order Production</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container-highest rounded-full active:scale-95 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-4 md:p-8 max-w-7xl mx-auto w-full space-y-6">
+<!-- Header Identity Section (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Primary ID Card -->
+<div class="md:col-span-2 bg-surface border border-outline-variant rounded-xl p-6 flex flex-col justify-between overflow-hidden relative">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-tertiary-container/10 text-tertiary border border-tertiary-container/20 mb-2 uppercase tracking-widest">
+                                Order #2948
+                            </span>
+<h3 class="font-display-lg text-display-lg text-on-surface mb-1">Coroa Zircônia Translúcida</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Laboratório Central • Dente 11 • Cor A2 (VITA)</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-4 py-1.5 rounded-lg bg-primary/10 text-primary font-bold border border-primary/20 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary step-active-pulse"></span>
+                                Em Acabamento
+                            </span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Entrega: 18 Out, 17:00</p>
+</div>
+</div>
+</div>
+<!-- Patient & Quick Info -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">PACIENTE</p>
+<p class="font-headline-sm text-headline-sm">ID: PR-9402</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div class="p-3 bg-surface-container rounded-lg">
+<p class="font-label-caps text-label-caps text-on-surface-variant">DENTE</p>
+<p class="font-body-lg text-body-lg font-bold">11</p>
+</div>
+<div class="p-3 bg-surface-container rounded-lg">
+<p class="font-label-caps text-label-caps text-on-surface-variant">MATERIAL</p>
+<p class="font-body-lg text-body-lg font-bold">Zirconia</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Workflow & Visual Reference Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Production Stepper -->
+<div class="lg:col-span-8 bg-surface border border-outline-variant rounded-xl p-6">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-8">Fluxo de Produção</h4>
+<div class="relative pl-8 space-y-12">
+<!-- Connecting Line -->
+<div class="absolute left-[15px] top-2 bottom-2 w-0.5 border-l-2 border-dashed border-outline-variant"></div>
+<!-- Step 1: Done -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center z-10 text-on-primary">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<p class="font-body-lg text-body-lg font-bold text-on-surface">Design Digital</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Finalizado por Lucas M. em 14 Out, 10:20</p>
+</div>
+<span class="text-xs font-mono bg-surface-container-highest px-2 py-1 rounded">CAD-01</span>
+</div>
+</div>
+<!-- Step 2: Done -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center z-10 text-on-primary">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<p class="font-body-lg text-body-lg font-bold text-on-surface">Fresagem CNC</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Finalizado em 14 Out, 16:45</p>
+</div>
+<span class="text-xs font-mono bg-surface-container-highest px-2 py-1 rounded">CNC-X4</span>
+</div>
+</div>
+<!-- Step 3: Current -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-8 h-8 rounded-full bg-primary-container ring-4 ring-primary-fixed flex items-center justify-center z-10 text-on-primary-container step-active-pulse">
+<span class="material-symbols-outlined text-[18px]">handyman</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-primary-fixed/30 rounded-xl border border-primary-fixed">
+<div>
+<p class="font-body-lg text-body-lg font-bold text-primary">Acabamento Manual</p>
+<p class="font-body-sm text-body-sm text-on-primary-fixed-variant">Iniciado há 45 min • Operador: Aneety Lab Ops</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold active:scale-95 transition-all shadow-md">
+                                    Concluir Etapa
+                                </button>
+</div>
+</div>
+<!-- Step 4: Pending -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-8 h-8 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center z-10 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">palette</span>
+</div>
+<div class="flex justify-between items-start opacity-60">
+<div>
+<p class="font-body-lg text-body-lg font-bold text-on-surface">Glaze &amp; Pintura</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Próxima etapa (Estimado: 2h)</p>
+</div>
+</div>
+</div>
+<!-- Step 5: Pending -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-8 h-8 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center z-10 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div class="flex justify-between items-start opacity-60">
+<div>
+<p class="font-body-lg text-body-lg font-bold text-on-surface">Controle de Qualidade</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Etapa final</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Media & Attachments -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Reference Image -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden">
+<div class="relative h-64 w-full">
+<img alt="Production reference" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uhg27-vkdt_rGkOZ9Zyh8aNVKI2-cJgnvtOLwImDIyoW1fGlYMZVWjj-DugQQma1TcAg3LjeVXn2A-SaprPfw_vvTTp36oqcNSQlW2SbCn3LRQS1zpNY5fii3zU6PzI5OXl5iPKAQ3uqhpon7kdqk-9-ZDIWtkn9UHb3WKfNS3MFh3NnTz11kkQNnK6Hjr6xEjD3IHnpiwbhXY6i1uoNxZm8aQW8-4ukw-v5dlBEA6igqKNhbZEJOqVG7dn"/>
+<div class="absolute bottom-4 right-4 flex gap-2">
+<button class="w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center backdrop-blur-sm hover:bg-black/70 transition-all">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add_a_photo</span>
+</button>
+</div>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-primary text-on-primary text-xs font-bold rounded shadow-sm">REFERÊNCIA ATUAL</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low">
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">"Atenção extra aos bordos cervicais para garantir selamento periférico perfeito."</p>
+</div>
+</div>
+<!-- Attachments List -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4">
+<div class="flex items-center justify-between mb-4">
+<h5 class="font-body-lg text-body-lg font-bold">Anexos do Caso</h5>
+<button class="text-primary font-bold text-xs uppercase tracking-wide hover:underline">Ver Todos</button>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-3 p-2 border border-outline-variant rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary">description</span>
+<div class="overflow-hidden">
+<p class="text-body-md font-medium truncate">Prescricao_Caso_2948.pdf</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Digital Scan • 2.4 MB</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 border border-outline-variant rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary">image</span>
+<div class="overflow-hidden">
+<p class="text-body-md font-medium truncate">Foto_Paciente_Perfil.jpg</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Clinical Photo • 1.1 MB</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Note Action -->
+<button class="w-full py-4 border-2 border-dashed border-outline-variant rounded-xl text-on-surface-variant font-bold flex items-center justify-center gap-2 hover:bg-surface-container-low hover:border-primary transition-all">
+<span class="material-symbols-outlined">post_add</span>
+                        Adicionar Observação
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-16 bg-surface border-t border-outline-variant flex justify-around items-center px-4 pb-safe z-50 shadow-[0_-4px_12px_-1px_rgba(0,0,0,0.08)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="font-label-caps text-label-caps mt-1">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span class="font-label-caps text-label-caps mt-1">Tasks</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 -mt-8 shadow-lg ring-4 ring-background">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+<span class="font-label-caps text-label-caps mt-1">Scan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for active state simulation
+        document.querySelectorAll('button, [role="button"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.add('active:scale-95');
+            });
+        });
+    </script>
+</body></html>

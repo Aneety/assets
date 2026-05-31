@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Aneety Platform - Fornecedor Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#594400",
+                    "outline": "#7a7582",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "on-secondary-container": "#645a7d",
+                    "primary": "#4f378a",
+                    "surface-tint": "#6750a4",
+                    "inverse-primary": "#cfbcff",
+                    "surface-container-highest": "#e6e0e9",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#cbc4d2",
+                    "inverse-surface": "#322f35",
+                    "on-tertiary-fixed": "#241a00",
+                    "secondary-fixed": "#e9ddff",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#ded8e0",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fdf7ff",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "primary-container": "#6750a4",
+                    "on-primary-fixed": "#22005d",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#fdf7ff",
+                    "secondary-container": "#e1d4fd",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f8f2fa",
+                    "on-surface-variant": "#494551",
+                    "surface-container": "#f2ecf4",
+                    "on-surface": "#1d1b20",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "background": "#fdf7ff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdf93",
+                    "primary-fixed-dim": "#cfbcff",
+                    "on-background": "#1d1b20",
+                    "on-tertiary-container": "#503d00",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "surface-variant": "#e6e0e9",
+                    "secondary": "#63597c",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#c9a74d",
+                    "on-primary-container": "#e0d2ff",
+                    "inverse-on-surface": "#f5eff7",
+                    "primary-fixed": "#e9ddff",
+                    "tertiary": "#765b00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-margin-desktop": "32px",
+                    "density-comfortable": "16px",
+                    "gutter": "16px",
+                    "container-margin-mobile": "16px",
+                    "unit": "4px",
+                    "density-dense": "8px"
+            },
+            "fontFamily": {
+                    "data-mono": ["JetBrains Mono"],
+                    "body-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fdf7ff;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .status-badge {
+            @apply rounded-full px-3 py-1 font-label-caps text-label-caps flex items-center gap-1;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- Top App Bar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 w-full sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Aneety</span>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant text-[10px] uppercase font-bold tracking-widest">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">sync</span>
+<span>Online</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">notifications</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center border border-outline-variant overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTOlPWJNPViBLnaWNhflD80SRlaBhjky-5mVKZAN39_LcM3hCMZ1xBb3KJebvAFJN9JoW-zlAIEISPtGMtdbx_79AbhQBQlEPjQGak6ClD5zi_cRlxbasgc5CsucoNiSE3YvETXW5Ez7FgKuB8kywJVo5V6pgjpMBL8DcWy2AI9dhUjMtDqbi6yW3DXXQPu91DTfV-Crg3_th-381WkNitQ2GDIDHYbRgOeoImBY0PlM89YEiPvA59xzNpkKYtUuLelQerjbcopgOs"/>
+</div>
+</div>
+</header>
+<main class="pb-24 pt-4 px-container-margin-mobile">
+<!-- Dashboard Summary Section (Horizontal Scrollable for Mobile) -->
+<section class="flex overflow-x-auto gap-gutter hide-scrollbar mb-8 -mx-container-margin-mobile px-container-margin-mobile">
+<!-- Pending Quotes -->
+<div class="flex-shrink-0 w-[140px] bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-2">
+<span class="material-symbols-outlined text-tertiary">request_quote</span>
+<div class="text-on-surface-variant font-label-caps text-label-caps">Pending Quotes</div>
+<div class="font-headline-md text-headline-md text-on-surface">12</div>
+</div>
+<!-- In Production -->
+<div class="flex-shrink-0 w-[140px] bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">precision_manufacturing</span>
+<div class="text-on-surface-variant font-label-caps text-label-caps">In Production</div>
+<div class="font-headline-md text-headline-md text-on-surface">08</div>
+</div>
+<!-- Ready for Delivery -->
+<div class="flex-shrink-0 w-[140px] bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-2">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant">local_shipping</span>
+<div class="text-on-surface-variant font-label-caps text-label-caps">Ready Delivery</div>
+<div class="font-headline-md text-headline-md text-on-surface">03</div>
+</div>
+</section>
+<!-- Active Tasks Header -->
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Active Tasks</h2>
+<button class="text-primary font-body-sm text-body-sm font-semibold">View All</button>
+</div>
+<!-- Task List -->
+<div class="flex flex-col gap-4" id="task-container">
+<!-- Task Item: Production -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 flex flex-col gap-3 shadow-sm transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-on-surface font-semibold font-body-md text-body-md block">Order #2948 - Dental Prosthetics</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Client: Clinica Sorriso Ideal</span>
+</div>
+<div class="bg-secondary-container/30 text-secondary status-badge">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span>Em Produção</span>
+</div>
+</div>
+<div class="flex items-center gap-4 pt-2 border-t border-outline-variant">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-data-mono text-data-mono">Delivery: Oct 12</span>
+</div>
+<div class="flex items-center gap-1 text-error">
+<span class="material-symbols-outlined text-[18px]">priority_high</span>
+<span class="font-data-mono text-data-mono">Urgent</span>
+</div>
+</div>
+</div>
+<!-- Task Item: Delayed -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 flex flex-col gap-3 shadow-sm transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-on-surface font-semibold font-body-md text-body-md block">Order #2931 - Titanium Screws</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Client: OrthoCenter Ltd.</span>
+</div>
+<div class="bg-error-container/30 text-error status-badge">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>Atrasado</span>
+</div>
+</div>
+<div class="flex items-center gap-4 pt-2 border-t border-outline-variant">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-data-mono text-data-mono">Overdue: 2 days</span>
+</div>
+</div>
+</div>
+<!-- Task Item: Quality Pending -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 flex flex-col gap-3 shadow-sm transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-on-surface font-semibold font-body-md text-body-md block">Order #2955 - Ceramic Crowns</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Client: BioDental Lab</span>
+</div>
+<div class="bg-tertiary-container/30 text-tertiary status-badge">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Pendente Qualidade</span>
+</div>
+</div>
+<div class="flex items-center gap-4 pt-2 border-t border-outline-variant">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-data-mono text-data-mono">Inspection: Oct 10</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden by default, used for demonstration if needed) -->
+<div class="hidden flex-col items-center justify-center py-20 px-8 text-center bg-surface-container-low rounded-3xl mt-4" id="empty-state">
+<div class="w-48 h-48 mb-6 relative">
+<div class="absolute inset-0 bg-primary/5 rounded-full animate-pulse"></div>
+<img alt="Empty Box illustration" class="w-full h-full object-contain relative z-10 opacity-60" data-alt="A clean, minimalist 3D illustration of an empty wooden shipping crate sitting in a pristine, bright warehouse. The lighting is soft and corporate, with a color palette dominated by whites, light purples, and professional grays. The mood is calm and ready for new business opportunities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgi0TwSObmVUx2j8P0M-sUFNkGnBsm7GqxEplhATMcCgKlZkqPYTeAimhItYR-Yua_fB3LAZtyRU86KPvfZhcqdsm42ERzFfvqmQz4FeDR92oF6sMN3o49SCG7IxLDM-o2EdzY1oEeW4I_-eHqDJTdK65_HF8A320ksYmMd9E4z1WC4Lv7l17vqi0HTZQIe-rMjbRKG-SBHo7dxeTQ4kZd2P9hmivHLViS3EXjpsx_EEs5yeKDt46A8xkGNXUpRKyzrObkuukQdCWU"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Nenhuma demanda ativa</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-8">Parece que sua esteira de produção está livre no momento. Que tal buscar novas oportunidades?</p>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined">explore</span>
+                Marketplace
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface dark:bg-surface-dim shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<span class="font-label-caps text-label-caps">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-2 hover:bg-surface-container-high active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-caps text-label-caps">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-2 hover:bg-surface-container-high active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button for Field Activity (Optional based on dashboard context) -->
+<button class="fixed bottom-20 right-6 w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center z-40 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<script>
+        // Micro-interaction for status indicators
+        const tasks = document.querySelectorAll('#task-container > div');
+        tasks.forEach(task => {
+            task.addEventListener('click', () => {
+                // Potential navigation to detail
+                console.log('Task detail requested');
+            });
+        });
+
+        // Offline toggle simulation
+        let isOnline = true;
+        const syncIndicator = document.querySelector('.bg-surface-container-highest');
+        
+        // This is just a visual demo of the indicator requested
+        setInterval(() => {
+            // No action needed, keeping it static for the prompt requirement 
+            // unless we want a flickering effect
+        }, 5000);
+    </script>
+</body></html>

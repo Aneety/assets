@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Supplier - LogTech Soluções</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#ded8e0",
+                        "on-secondary-fixed": "#1f1635",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "tertiary-fixed": "#ffdf93",
+                        "surface-container-high": "#ece6ee",
+                        "on-surface-variant": "#494551",
+                        "on-surface": "#1d1b20",
+                        "surface-container-highest": "#e6e0e9",
+                        "tertiary": "#765b00",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#cbc4d2",
+                        "surface-tint": "#6750a4",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fdf7ff",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed-dim": "#cfbcff",
+                        "surface-container-low": "#f8f2fa",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#22005d",
+                        "on-secondary-container": "#645a7d",
+                        "secondary-container": "#e1d4fd",
+                        "background": "#fdf7ff",
+                        "on-tertiary-container": "#503d00",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#cfbcff",
+                        "surface-variant": "#e6e0e9",
+                        "inverse-on-surface": "#f5eff7",
+                        "primary-fixed": "#e9ddff",
+                        "on-primary-container": "#e0d2ff",
+                        "on-background": "#1d1b20",
+                        "tertiary-container": "#c9a74d",
+                        "secondary": "#63597c",
+                        "surface": "#fdf7ff",
+                        "primary": "#4f378a",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "primary-container": "#6750a4",
+                        "surface-container": "#f2ecf4",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#241a00",
+                        "outline": "#7a7582",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#322f35"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "density-dense": "8px",
+                        "gutter": "16px",
+                        "density-comfortable": "16px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: repeating-linear-gradient(to bottom, #7a7582, #7a7582 4px, transparent 4px, transparent 8px);
+            left: 11px;
+            top: 24px;
+        }
+        .step-complete::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: #4f378a;
+            left: 11px;
+            top: 24px;
+        }
+        .step-last::after { display: none; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbc4d2; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden pb-32">
+<!-- TopAppBar Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center px-container-margin-mobile h-14 bg-surface dark:bg-surface-container border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+<button class="mr-4 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="flex-grow text-headline-sm-mobile font-headline-sm-mobile font-bold text-primary dark:text-primary-fixed">Review Supplier</h1>
+<button class="active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<main class="mt-14 p-container-margin-mobile space-y-6">
+<!-- Business Summary Header -->
+<section class="bg-surface border border-outline-variant p-density-comfortable rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">LogTech Soluções</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-data-mono">CNPJ: 42.123.456/0001-89</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-container/20 text-on-tertiary-container font-label-caps text-label-caps border border-tertiary-container/30">
+                    EM ANÁLISE
+                </span>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Created At</p>
+<p class="font-body-md text-body-md">Oct 24, 2023</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Score</p>
+<p class="font-body-md text-body-md flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.8/5.0
+                    </p>
+</div>
+</div>
+</section>
+<!-- Operational Section -->
+<section class="space-y-3">
+<h3 class="font-headline-sm text-headline-sm text-on-surface px-1">Operational Profile</h3>
+<div class="grid grid-cols-1 gap-3">
+<div class="bg-surface border border-outline-variant p-4 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Logística</p>
+<p class="font-body-sm text-on-surface-variant">Primary Category</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="check_circle">check_circle</span>
+</div>
+<div class="bg-surface border border-outline-variant p-4 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="construction">construction</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Instalação</p>
+<p class="font-body-sm text-on-surface-variant">Secondary Category</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="check_circle">check_circle</span>
+</div>
+<div class="bg-surface border border-outline-variant p-4 rounded-xl">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-2">Capacity</p>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-body-sm">Pequeno Porte</span>
+<span class="text-on-surface-variant text-body-sm italic">Max 50 orders/day</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Registration Data Section -->
+<section class="space-y-3">
+<div class="flex justify-between items-center px-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Business Details</h3>
+<button class="text-primary font-label-caps text-label-caps">EDIT</button>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-4 space-y-4">
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-1">Legal Name</label>
+<p class="font-body-md text-on-surface">Logistics Technology Solutions LTDA</p>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-1">Business Address</label>
+<p class="font-body-md text-on-surface leading-relaxed">Av. Paulista, 1000 - Bela Vista<br/>São Paulo, SP - 01310-100</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-1">State Reg.</label>
+<p class="font-data-mono text-body-md text-on-surface">110.234.567.890</p>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-1">City Reg.</label>
+<p class="font-data-mono text-body-md text-on-surface">9.876.543-2</p>
+</div>
+</div>
+</div>
+<!-- Mini Map Placeholder -->
+<div class="h-32 bg-surface-container-highest relative">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="A clean, minimalist digital map view showing a highlighted city block in a modern urban planning style. The map uses a sophisticated neutral color palette with primary purple accents for markers and routes. The lighting is bright and clear, emphasizing a high-tech logistics dashboard aesthetic." data-location="São Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCswMBnFkvjtgDadqI_FqlNOCoGEklfgsVHh8B8vr5dKilOrqfEVhPLjVFBwiznw4A94rAtcf_dZm_wbsfY4BRlErcWj6xhuQJDBicAI_jM1wmvVVCc0ERj3YpRI2a1Lul2RwJ2K-d4N3eSFTUF1Josz3jgkv3f9eb48apbbxquVBf64C8xM0kNm8xnx5POZFnukZah_EbEMqtZiwb2UnM_v9M5qfsk-BvLbfEPwbKTSF7z9YLnzwvlQ_CVhYsCVh04CRXKyUqzJtMF"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center border-4 border-white shadow-lg">
+<span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Documents Section -->
+<section class="space-y-3">
+<h3 class="font-headline-sm text-headline-sm text-on-surface px-1">Required Documents</h3>
+<div class="space-y-2">
+<!-- Valid Doc -->
+<div class="bg-surface border border-outline-variant p-density-comfortable rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+</div>
+<div class="flex-grow min-w-0">
+<p class="font-body-md font-semibold truncate text-on-surface">Contrato Social.pdf</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-body-sm text-green-600 font-medium">Valid</span>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="visibility">visibility</span>
+</button>
+</div>
+<!-- Issue Doc -->
+<div class="bg-surface border border-error/20 p-density-comfortable rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-error-container/20 flex items-center justify-center border border-error-container">
+<span class="material-symbols-outlined text-error" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="flex-grow min-w-0">
+<p class="font-body-md font-semibold truncate text-on-surface">Certidões Federais.pdf</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-body-sm text-error font-medium">Issue: Expired</span>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-all">
+<span class="material-symbols-outlined text-error" data-icon="info">info</span>
+</button>
+</div>
+<!-- Pending Doc -->
+<div class="bg-surface border border-outline-variant p-density-comfortable rounded-xl flex items-center gap-4 opacity-70">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-outline" data-icon="draft">draft</span>
+</div>
+<div class="flex-grow min-w-0">
+<p class="font-body-md font-semibold truncate text-on-surface">Alvará Municipal</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-body-sm text-on-surface-variant font-medium">Pending Upload</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- History Timeline Section -->
+<section class="space-y-3 pb-8">
+<h3 class="font-headline-sm text-headline-sm text-on-surface px-1">Onboarding Timeline</h3>
+<div class="relative ml-2 space-y-8">
+<!-- Complete Step -->
+<div class="relative flex items-start gap-4 step-complete">
+<div class="z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div class="flex-grow">
+<p class="font-body-md font-bold text-on-surface">Submission Received</p>
+<p class="font-body-sm text-on-surface-variant">Oct 24, 2023 • 09:15 AM</p>
+</div>
+</div>
+<!-- Complete Step -->
+<div class="relative flex items-start gap-4 step-complete">
+<div class="z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div class="flex-grow">
+<p class="font-body-md font-bold text-on-surface">Initial Screening</p>
+<p class="font-body-sm text-on-surface-variant">Oct 24, 2023 • 02:30 PM</p>
+</div>
+</div>
+<!-- Active/Current Step -->
+<div class="relative flex items-start gap-4 step-active">
+<div class="z-10 w-6 h-6 rounded-full bg-white border-2 border-primary flex items-center justify-center">
+<div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+</div>
+<div class="flex-grow">
+<p class="font-body-md font-bold text-primary">Document Validation</p>
+<p class="font-body-sm text-on-surface-variant">In Progress • Assignee: Sarah Connor</p>
+</div>
+</div>
+<!-- Pending Step -->
+<div class="relative flex items-start gap-4 step-last">
+<div class="z-10 w-6 h-6 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center">
+<span class="w-2 h-2 bg-outline rounded-full"></span>
+</div>
+<div class="flex-grow">
+<p class="font-body-md font-bold text-on-surface-variant">Final Approval</p>
+<p class="font-body-sm text-on-surface-variant">Pending background check</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Bottom Actions -->
+<div class="fixed bottom-0 left-0 w-full z-50 bg-surface border-t border-outline-variant p-4 flex flex-col gap-2 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<button class="w-full bg-primary text-on-primary py-3.5 rounded-xl font-body-lg font-bold shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+            Aprovar Cadastro
+        </button>
+<div class="flex gap-2">
+<button class="flex-1 bg-surface-container-high text-on-surface-variant py-3 rounded-xl font-body-md font-semibold border border-outline-variant active:scale-95 transition-all">
+                Solicitar Correção
+            </button>
+<button class="flex-1 bg-error-container/20 text-error py-3 rounded-xl font-body-md font-semibold border border-error/30 active:scale-95 transition-all">
+                Rejeitar
+            </button>
+</div>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Haptic feedback simulation or ripple effect could go here
+                console.log('Action triggered');
+            });
+        });
+
+        // Floating Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

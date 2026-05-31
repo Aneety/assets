@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configuração Operacional - Onboarding de Fornecedores</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fdf7ff",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "surface-container-highest": "#e6e0e9",
+                    "background": "#fdf7ff",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#cfbcff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#22005d",
+                    "secondary": "#63597c",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "secondary-container": "#e1d4fd",
+                    "surface-container-low": "#f8f2fa",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "on-tertiary-container": "#503d00",
+                    "secondary-fixed": "#e9ddff",
+                    "outline": "#7a7582",
+                    "on-secondary-fixed": "#1f1635",
+                    "inverse-primary": "#cfbcff",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#e0d2ff",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1d1b20",
+                    "on-secondary-container": "#645a7d",
+                    "tertiary": "#765b00",
+                    "surface-container-high": "#ece6ee",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e6e0e9",
+                    "tertiary-fixed": "#ffdf93",
+                    "on-error": "#ffffff",
+                    "surface-container": "#f2ecf4",
+                    "on-background": "#1d1b20",
+                    "surface-tint": "#6750a4",
+                    "surface": "#fdf7ff",
+                    "on-tertiary-fixed": "#241a00",
+                    "primary-container": "#6750a4",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "inverse-on-surface": "#f5eff7",
+                    "tertiary-container": "#c9a74d",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#cbc4d2",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#4f378a",
+                    "on-surface-variant": "#494551",
+                    "inverse-surface": "#322f35",
+                    "surface-dim": "#ded8e0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "container-margin-mobile": "16px",
+                    "density-dense": "8px",
+                    "density-comfortable": "16px",
+                    "container-margin-desktop": "32px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "data-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #e6e0e9;
+            border-radius: 2px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #4f378a;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<!-- Top Navigation (Shared Component Mock) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-container-margin-mobile h-14 bg-surface shadow-sm transition-colors duration-200">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-headline-sm text-headline-sm-mobile font-bold text-primary">Onboarding Operacional</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a mature businessman in his 40s wearing a crisp white shirt and a dark navy blue blazer. He has a warm, confident smile and neat, short-cropped hair. The background is a blurred corporate office setting with soft, high-key lighting, maintaining a bright and modern light-mode aesthetic consistent with professional B2B software interfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1NxTb43M85R6EkZBlwkTkkGERD4XcNvLWPaDI_uKJlxlG2xKkhdONmmjNhablGK6uzS7rTeZNirj6oLWIdBamEfXcVHEHWuTIwIe9ZZF0bK6XMqsDljfIXMBmQKYfl3YhOCSK_UsNWFEJkN7j1aeD5F4z3Vs8sZjsYX2QrspWi9BXdm0Cjyu4DsZf4vnm6Wih-RvlNsFsUR5yr1myq6xPrV3dy3ZSTPMagvOfwu1yt_7l5G0kWe5wRFljYbNY6Br0edUjiAegtOZJ"/>
+</div>
+</header>
+<main class="pt-20 pb-24 px-container-margin-mobile md:px-container-margin-desktop max-w-[1000px] mx-auto">
+<!-- Stepper Indicator -->
+<div class="mb-8 flex items-center gap-2">
+<div class="h-2 flex-1 rounded-full bg-primary"></div>
+<div class="h-2 flex-1 rounded-full bg-primary"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-container-highest"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-container-highest"></div>
+<span class="ml-2 font-label-caps text-label-caps text-on-surface-variant">PASSO 2 DE 4</span>
+</div>
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Form Section -->
+<div class="md:col-span-7 flex flex-col gap-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Configurações de Serviço</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Defina as categorias e o alcance da sua operação para começarmos a direcionar os melhores pedidos.</p>
+</div>
+<!-- Categories -->
+<div class="space-y-4">
+<label class="font-label-caps text-label-caps text-primary uppercase tracking-wider">Categorias de Serviço</label>
+<div class="flex flex-wrap gap-2">
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-outline hover:bg-surface-container-high transition-all active:scale-95 text-body-md" onclick="toggleChip(this)">
+<span class="material-symbols-outlined text-[18px]">build</span>
+<span>Manutenção</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-outline hover:bg-surface-container-high transition-all active:scale-95 text-body-md" onclick="toggleChip(this)">
+<span class="material-symbols-outlined text-[18px]">settings_input_component</span>
+<span>Peças</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-outline hover:bg-surface-container-high transition-all active:scale-95 text-body-md" onclick="toggleChip(this)">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+<span>Logística</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-outline hover:bg-surface-container-high transition-all active:scale-95 text-body-md" onclick="toggleChip(this)">
+<span class="material-symbols-outlined text-[18px]">electrical_services</span>
+<span>Instalação</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-outline hover:bg-surface-container-high transition-all active:scale-95 text-body-md" onclick="toggleChip(this)">
+<span class="material-symbols-outlined text-[18px]">biotech</span>
+<span>Laboratório</span>
+</button>
+</div>
+</div>
+<!-- Range Slider -->
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<label class="font-label-caps text-label-caps text-primary uppercase tracking-wider">Raio de Atuação (km)</label>
+<span class="font-data-mono text-data-mono bg-primary-container text-on-primary-container px-2 py-1 rounded" id="range-value">50 km</span>
+</div>
+<div class="relative pt-2">
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer" id="radius-slider" max="500" min="5" step="5" type="range" value="50"/>
+<div class="flex justify-between mt-2 font-body-sm text-body-sm text-on-surface-variant">
+<span>5 km</span>
+<span>250 km</span>
+<span>500 km</span>
+</div>
+</div>
+</div>
+<!-- Capacity Selection -->
+<div class="space-y-4">
+<label class="font-label-caps text-label-caps text-primary uppercase tracking-wider">Capacidade Operacional</label>
+<div class="grid grid-cols-1 gap-3">
+<label class="group relative flex items-center p-4 cursor-pointer rounded-xl border border-outline-variant bg-surface hover:border-primary transition-all has-[:checked]:border-primary has-[:checked]:bg-primary-fixed">
+<input checked="" class="hidden" name="capacity" type="radio"/>
+<div class="flex-1">
+<p class="font-body-lg text-body-lg font-semibold text-on-surface">Pequeno Porte</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Até 10 ordens de serviço por semana</p>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-has-[:checked]:opacity-100 transition-opacity">check_circle</span>
+</label>
+<label class="group relative flex items-center p-4 cursor-pointer rounded-xl border border-outline-variant bg-surface hover:border-primary transition-all has-[:checked]:border-primary has-[:checked]:bg-primary-fixed">
+<input class="hidden" name="capacity" type="radio"/>
+<div class="flex-1">
+<p class="font-body-lg text-body-lg font-semibold text-on-surface">Médio Porte</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Entre 11 e 50 ordens de serviço por semana</p>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-has-[:checked]:opacity-100 transition-opacity">check_circle</span>
+</label>
+<label class="group relative flex items-center p-4 cursor-pointer rounded-xl border border-outline-variant bg-surface hover:border-primary transition-all has-[:checked]:border-primary has-[:checked]:bg-primary-fixed">
+<input class="hidden" name="capacity" type="radio"/>
+<div class="flex-1">
+<p class="font-body-lg text-body-lg font-semibold text-on-surface">Grande Porte</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mais de 50 ordens de serviço por semana</p>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-has-[:checked]:opacity-100 transition-opacity">check_circle</span>
+</label>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-4">
+<button class="w-full md:w-auto px-8 h-12 bg-primary text-on-primary rounded-full font-headline-sm flex items-center justify-center gap-2 hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95 shadow-lg shadow-primary/20">
+                        Próximo Passo
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Visual Context Card (Bento Style) -->
+<div class="md:col-span-5 hidden md:flex flex-col gap-4">
+<div class="bg-surface-container-low rounded-3xl p-6 border border-outline-variant sticky top-24 overflow-hidden shadow-sm">
+<div class="absolute -right-16 -top-16 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6">Resumo da Área</h3>
+<div class="aspect-video w-full rounded-2xl mb-6 bg-surface-container-highest overflow-hidden border border-outline-variant relative">
+<img alt="Map interface" class="w-full h-full object-cover opacity-80" data-alt="A clean and modern digital map interface showcasing a metropolitan city area. The map uses a minimalist aesthetic with soft gray roads and light blue water bodies. A glowing semi-transparent purple circle overlays the map, representing a service radius. The lighting is soft and professional, emphasizing a high-tech logistics dashboard style for an enterprise software application." data-location="São Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACxVAKfMPqC2GELdDPh4YE_JqCv0yEQuvYX1URwOgW6LMJI5XxroVrqsETGyprvoRJWBmRlIfXkcYB6zUd7KH_aogJpZoMEQG-UX_h0yQms2yb06u788hSl1zsHaAzjES6LXz4yfH4NX_v8IsCabSjy-vcLzy41GXR7QwCiPEgB0_Qfa1U073yFMx1XecIwRYzOh3-OBxxUil2-kazRPwqFEQAlUzkQvcQVuuFUwh4z2jlEJptP0xNRrkqMd5Ch4rSgfEdK5pRCwth"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-32 h-32 border-2 border-primary bg-primary/10 rounded-full animate-pulse flex items-center justify-center">
+<div class="w-4 h-4 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed-variant">location_on</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sua Base</p>
+<p class="font-body-md text-body-md font-semibold">São Paulo, SP - Matriz</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">group</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Clientes Potenciais</p>
+<p class="font-body-md text-body-md font-semibold">~1.420 na região selecionada</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant">trending_up</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nível de Demanda</p>
+<p class="font-body-md text-body-md font-semibold">Alta (Crescimento de 12%)</p>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-primary-container/20 rounded-2xl border border-primary/10">
+<p class="font-body-sm text-body-sm text-on-primary-container italic">
+                            "Ajustar o raio de atuação permite que nosso algoritmo priorize chamados mais rentáveis para sua equipe de campo."
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Component Mock) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-16 bg-surface shadow-lg rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-caps text-label-caps">Pedidos</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined">request_quote</span>
+<span class="font-label-caps text-label-caps">Cotações</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-caps text-label-caps">Tarefas</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Perfil</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for chips
+        function toggleChip(button) {
+            const isSelected = button.classList.contains('bg-primary');
+            if (isSelected) {
+                button.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
+                button.classList.add('border-outline', 'text-on-background');
+                button.querySelector('span:first-child').style.fontVariationSettings = "'FILL' 0";
+            } else {
+                button.classList.add('bg-primary', 'text-on-primary', 'border-primary');
+                button.classList.remove('border-outline', 'text-on-background');
+                button.querySelector('span:first-child').style.fontVariationSettings = "'FILL' 1";
+            }
+        }
+
+        // Range Slider Interaction
+        const slider = document.getElementById('radius-slider');
+        const rangeValue = document.getElementById('range-value');
+
+        slider.addEventListener('input', function() {
+            rangeValue.textContent = `${this.value} km`;
+            
+            // Visual feedback on the map circle if it existed as an SVG, but here we'll just log it
+            // In a real app, this would update the circle overlay size
+        });
+
+        // Offline Indicator logic simulation
+        window.addEventListener('online', () => showSyncStatus('Conectado', 'success'));
+        window.addEventListener('offline', () => showSyncStatus('Modo Offline', 'warning'));
+
+        function showSyncStatus(msg, type) {
+            const bar = document.createElement('div');
+            bar.className = `fixed top-0 left-0 w-full h-1 z-[100] transition-all duration-500 ${type === 'success' ? 'bg-tertiary' : 'bg-error'}`;
+            document.body.appendChild(bar);
+            setTimeout(() => bar.remove(), 3000);
+        }
+    </script>
+</body></html>
